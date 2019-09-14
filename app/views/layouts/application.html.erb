@@ -10,6 +10,18 @@
   </head>
 
   <body>
-    <%= yield %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/login_header' %>
+      <% elsif administrator_signed_in? %>
+        <%= render 'layouts/admin_header' %>
+      <% else %>
+        <%= render 'layouts/not_login_header' %>
+      <% end %>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+  
+      <%= render 'layouts/footer' %>
   </body>
 </html>
