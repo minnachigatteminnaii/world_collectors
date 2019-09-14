@@ -82,9 +82,11 @@ Rails.application.routes.draw do
 
   ###Devise
   #Users::~~DeviseController
+  devise_for :users
 
 
   #Administrators::~~DeviseController
-  
+  devise_for :administrators
+
 end
 
