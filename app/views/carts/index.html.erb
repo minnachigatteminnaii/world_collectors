@@ -22,7 +22,7 @@
                     <% end %>
                 </div>
             </div>
-            
+
             <div class="col-md-4">
                 <div>
                         <h3><%= item.price * item.cart_items.find_by(user_id: current_user.id).quantity %></h3>
@@ -34,4 +34,10 @@
             </div>
         </div>
     <% end %>
+
+    <div class="row">
+        <h2>合計金額</h2>   
+        <h2><%= @total_price %></h2> 
+        <%= link_to '購入方法の選択', new_order_path, class:"btn btn-primary" %>
+    </div>
 </div>

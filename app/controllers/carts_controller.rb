@@ -1,6 +1,11 @@
 class CartsController < ApplicationController
     def index
         @user_items = current_user.items   #Userに紐づくItemを全て持ってくる
+        #合計金額の計算
+        @total_price = 0
+        @user_items.each do |item|
+            @total_price += item.price * item.cart_items(user_id: current_user, item_id: item.id).quantity
+        end
     end
 
     def create
