@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name, null: false
       t.string :kana_first, null: false
       t.string :kana_last, null: false
-      t.strong :postal_code, null: false
+      t.string :postal_code, null: false
       t.text :address, null: false
       t.string :phone_number, null: false
       t.text :profile_image_id
