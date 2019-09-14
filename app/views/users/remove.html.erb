@@ -1,2 +1,14 @@
-<h1>Users#remove</h1>
-<p>Find me in app/views/users/remove.html.erb</p>
+<div class="notice">
+	<h1>本当に退会してしまってもよろしいですか？</h1>
+</div>
+<div class="container">
+	<div class="row">
+		#後でボタン追加する
+		<div class="col-md-3">
+			<%= link_to "退会する", user_path(current_user.id), :method => "PATCH"%>
+		</div>
+		<div crass="col-md-6">
+			<%= "やっぱりやめる", users_show_path(current_user.id) %>
+		</div>
+	</div>
+</div>
