@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
         @order = Order.new
 
         #支払い方法
-        @payment_method = params[:payment_methods]
+        @payment_method = params[:payment_method]
 
         #発送先住所
         @shopping_address = params[:shopping_address]

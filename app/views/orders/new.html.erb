@@ -4,7 +4,7 @@
         <div class="col-md-offset-2 col-md-8">
             <p><%= current_user.name %></p>
             <%= select_tag :shopping_address, options_for_select(@addresses) %>
-            <%= select_tag :payment_methods, options_for_select(["代金引き換え", cash], ["銀行振り込み", bank], ["クレジット決済", credit]) %>
+            <%= select_tag :payment_method, options_for_select(["代金引き換え", cash], ["銀行振り込み", bank], ["クレジット決済", credit]) %>
         </div>
 
         <div class="col-md-offset-2 col-md-8">
