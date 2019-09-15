@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-3">
+        #<%= render 'items' %>
+    </div>
+
+    <div class="col-md-6">
+        <div>
+            <%= attachment_image_tag @item, :jacket_image %>
+        <div>
+        <div>
+            <p><%= @item.item_name %></p>
+            <p><%= @item.label_name %></p>
+            <p><%= @item.genre %></p>
+            <p><%= @item.price %></p>
+            <p><%= @item.sales_management %></p>  #item.rbに'enum sales_management: { '売り切れ': 0, '販売中': 1 }
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <%= form_for(current_user.cart_items.build, url: carts_path) do |f| %>
+            <%= hidden_field_tag :item, @item.id %>
+            <%= f.select :quantity, options_for_select((1..@item.quantity).to_a, 1) %>
+            <%= f.submit 'カートへ追加', class:"btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
