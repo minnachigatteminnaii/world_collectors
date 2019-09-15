@@ -1,9 +1,10 @@
 <div class="row">
-	<%= form_tag(confirm_post_orders_path) do |f| %>
+    ####質問
+	<%= form_tag(confirm_orders_path) do %>
         <div class="col-md-offset-2 col-md-8">
             <p><%= current_user.name %></p>
-            <%= select_tag :shopping_address, options_for_select(@address) %>
-            <%= select_tag :payment_method, options_for_select(["代金引き換え", 0], ["銀行振り込み", 1], ["クレジット決済", 2]) %>
+            <%= select_tag :shopping_address, options_for_select(@addresses) %>
+            <%= select_tag :payment_methods, options_for_select(["代金引き換え", cash], ["銀行振り込み", bank], ["クレジット決済", credit]) %>
         </div>
 
         <div class="col-md-offset-2 col-md-8">
@@ -16,10 +17,7 @@
                 <% @user_cart_items do |cart_item| %>
                     <tr>
                         <td><%= cart_item.item.item_name %></td>
-                        <td>
-                            #<% item_quantity = item.cart_items.find_by(user_id: current_user.id).quantity %>
-                            <%= cart_item.quantity %>
-                        </td>
+                        <td><%= cart_item.quantity %></td>
                         <td><%= cart_item.item.price * cart_item.quantity %></td>
                     </tr>
                 <% end %>
@@ -33,7 +31,7 @@
                 <p>合計金額  <%= @total_price %></p>
             </div>
 
-            <%= f.submit '購入確認画面へ', confirm_orders_path %>
+            <%= f.submit '購入確認画面へ', confirm_orders_path, class:"btn btn-primary" %>
         </div>
 	<% end %>
 </div>
