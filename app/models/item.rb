@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     has_many :arrivals
     has_many :orders, through: :orders_items
     has_many :orders_items
-    has_many :disks, invers_of: :item
+    has_many :disks
     has_many :artists, through: :artists_items
     has_many :artists_items
     has_many :genres, through: :genres_items
@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     has_many :users, through: :favorites
     has_many :favorites
 
-    accepts_nested_attributes_for :disks, allow_destroy: true, reject_if: :all_brank
+    
 
     validates :item_name, presence: true
     validates :artist_name, presence: true
