@@ -16,4 +16,5 @@ class Order < ApplicationRecord
     validates :total_price, presence: true
 
     enum status: { receiving: 0, preparation: 1, shipped: 2}
+    enum payment_methods: { cash: 0, bank: 1, credit: 2 }
 end

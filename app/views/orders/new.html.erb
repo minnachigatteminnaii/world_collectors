@@ -1,0 +1,39 @@
+<div class="row">
+	<%= form_tag(confirm_post_orders_path) do |f| %>
+        <div class="col-md-offset-2 col-md-8">
+            <p><%= current_user.name %></p>
+            <%= select_tag :delivery_address, options_for_select(@address) %>
+            <%= select_tag :payment_method, options_for_select(["代金引き換え", 0], ["銀行振り込み", 1], ["クレジット決済", 2]) %>
+        </div>
+
+        <div class="col-md-offset-2 col-md-8">
+            <table>
+                <tr>
+                    <th>商品名</th>
+                    <th>個数</th>
+                    <th>金額</th>
+                </tr>
+                <% @user_cart_items do |cart_item| %>
+                    <tr>
+                        <td><%= cart_item.item.item_name %></td>
+                        <td>
+                            #<% item_quantity = item.cart_items.find_by(user_id: current_user.id).quantity %>
+                            <%= cart_item.quantity %>
+                        </td>
+                        <td><%= cart_item.item.price * cart_item.quantity %></td>
+                    </tr>
+                <% end %>
+            </table>
+        </div>
+
+        <div class="col-md-offset-2 col-md-8">
+            <div>
+                <p>送料  500円</p>
+                <p>代引き手数料  150円</p>
+                <p>合計金額  <%= @total_price %></p>
+            </div>
+
+            <%= f.submit '購入確認画面へ', confirm_post_orders_path %>
+        </div>
+	<% end %>
+</div>
