@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       put 'unsubscribe'
     end
   end
-  
+
   #ItemsController
   resources :items, only: :show
   get '/items/category/:category_id', to: 'items#category'
