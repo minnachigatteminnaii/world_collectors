@@ -5,7 +5,7 @@
 	<div class="row">
 		#後でボタン追加する
 		<div class="col-md-3">
-			<%= link_to "退会する", user_path(current_user.id), :method => "PATCH" class:'btn btn-danger' %>
+			<%= link_to "退会する", user_path(current_user.id), :method => "PUT" class:'btn btn-danger' %>
 		</div>
 		<div crass="col-md-6">
 			<%= "やっぱりやめる", users_show_path(current_user.id) class:'btn btn-success' %>

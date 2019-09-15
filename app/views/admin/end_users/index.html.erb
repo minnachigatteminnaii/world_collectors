@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+<div class="end">
+		<h2>Books</h2>
+		<table class="table">
+		  <tbody>
+		  	<% @user.each do |user| %>
+		  	<tr>
+             <td>
+              <%= link_to @user.name admin_users_show_path(@user) %>
+             </td>
+             <td><%= @user.email %></td>
+             <td><%= link_to "編集"　 edit_admin_end_user_path(@user) %></td>          
+      </tr>
+      <% end %>
+    </tbody></table>
+
+  </div>
+</div>
+</div>
+<%= paginate @users %>
