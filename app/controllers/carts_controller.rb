@@ -1,11 +1,13 @@
 class CartsController < ApplicationController
     def index
-        @user_items = current_user.items   #Userに紐づくItemを全て持ってくる
+        if user_signed_in?
+        @user_cart_items = User.first.cart_items   #Userに紐づくCartItemを全て持ってくる(ログイン実装後、User.firstをcurrent_userに変更)
         #合計金額の計算
         @total_price = 0
         @user_items.each do |item|
             @total_price += item.price * item.cart_items(user_id: current_user, item_id: item.id).quantity
         end
+    end
     end
 
     def create
@@ -20,13 +22,13 @@ class CartsController < ApplicationController
 
     def destroy
         #@cart_item = current_user.cart_items.find_by(item_id: params[:id])
-        @cart_item = CartItem.find_by(user_id: current_user.id, item_id: params[:id])
+        @cart_item = CartItem.find(params[:id])
         @cart_item.destroy
         redirect_to carts_url
     end
 
     def change
-        @cart_item = CartItem.find_by(user_id: current_user.id, item_id: params[:id])
+        @cart_item = CartItem.find(params[:id])
         @cart_item.update_attributes(cart_item_params)
         redirect_to carts_url
     end
