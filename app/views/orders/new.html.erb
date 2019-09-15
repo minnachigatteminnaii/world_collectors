@@ -2,7 +2,7 @@
 	<%= form_tag(confirm_post_orders_path) do |f| %>
         <div class="col-md-offset-2 col-md-8">
             <p><%= current_user.name %></p>
-            <%= select_tag :delivery_address, options_for_select(@address) %>
+            <%= select_tag :shopping_address, options_for_select(@address) %>
             <%= select_tag :payment_method, options_for_select(["代金引き換え", 0], ["銀行振り込み", 1], ["クレジット決済", 2]) %>
         </div>
 
@@ -33,7 +33,7 @@
                 <p>合計金額  <%= @total_price %></p>
             </div>
 
-            <%= f.submit '購入確認画面へ', confirm_post_orders_path %>
+            <%= f.submit '購入確認画面へ', confirm_orders_path %>
         </div>
 	<% end %>
 </div>

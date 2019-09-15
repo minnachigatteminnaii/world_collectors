@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <p><%= @shopping_address %></p>
+        
+        <div>
+            <h2>購入内容</h2>
+            <% @user_cart_items.each do |cart_item| %>
+                <table>
+                    <tr>
+                        <th>商品名</th>
+                        <th>個数</th>
+                        <th>金額</th>
+                    </tr>
+                    <% @user_cart_items do |cart_item| %>
+                        <tr>
+                            <td><%= cart_item.item.item_name %></td>
+                            <td>
+                                #<% item_quantity = item.cart_items.find_by(user_id: current_user.id).quantity %>
+                                <%= cart_item.quantity %>
+                            </td>
+                            <td><%= cart_item.item.price * cart_item.quantity %></td>
+                        </tr>
+                    <% end %>
+                </table>
+            <% end %>
+        </div>
+
+        <div>
+            <p>送料 500円</p>
+            <p>代引き手数料 150円</p>
+            <p>合計金額 <%= @total_price %></p>
+            <p>支払い方法 <%= @payment_method %></p>
+        </div>
+    </div>
+
+    <div>
+        <%= link_to '購入する', done_orders_path, class:"btn btn-primary" %>
+    </div>
+</div>

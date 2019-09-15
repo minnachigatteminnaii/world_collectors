@@ -19,12 +19,17 @@ class OrdersController < ApplicationController
         end
     end
 
-    def confirm_post
+    def confirm
+        @shopping_address = params[:shopping_address]
+        @payment_method = params[:payment_method]
+        @user_cart_items = current_user.cart_items
     end
 
-    def confirm_get
+    def create
+        
     end
 
     def done
+        
     end
 end
