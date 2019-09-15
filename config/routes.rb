@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   #ItemsController
   resources :items, only: :show
-  get '/items/category/:category_id', to: 'items#category'
+  get '/items/category/:category_id', to: 'items#category', as: :categoryr
 
   #CartsController
   resources :carts, only: [:index, :create, :destroy]
