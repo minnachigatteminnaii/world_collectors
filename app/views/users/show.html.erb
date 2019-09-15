@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+   <div class="profile-image">
+     <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, class: "img-circle profile-thumb", fallback: "no_image.jpg"%>
+
+   </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="profile-name">
+	   <h3 class="prof-n-kan">名前</h3>
+	     <%= @user.first_name %> <% @user.last_name %>
+    </div>
+    <div class="profile-yomi">
+	   <h3 class="prof-n-yom">名前（カナ）</h3>
+	   <%= @user.kana_first %> <%= @user.kana_last %>
+    </div>
+    <div class="profile-email">
+    	<h3 class="prof-email">メールアドレス</h3>
+    	<%= @user.email %>
+    </div>
+    <div class="profile-phonenum">
+    	<h3 class="prof-phonenum">電話番号</h3>
+    	<%= @user.phone_number %>
+    </div>
+    <div class="profile-address">
+    	<h3 class="prof-address">住所</h3>
+    	<%= @user.address %>
+    </div>
+    <div class="postal-code">
+    	<h3 class="prof-pc">郵便番号</h3>
+    	<%= @user.postal_code %>
+    </div>
+    <div class ="another-address">
+    	<%= link_to "その他の発送先", shopping_addresses_path(current_user.id) %>　
+    </div>
+    <div class="prof-order">
+    	<%= link_to "購入履歴",　order_users_path(current_user.id) %>
+    </div>
+    <div class="prof-fav">
+    	<%= link_to "いいね一覧", favorites_path(current_user.id) %>
+    </div>
+    <div class="prof-edit">
+    	<%= link_to "編集する", users_edit_path(current_user.id) %>
+    </div>
+    <div class="prof-remove">
+    	<%= link_to "退会する"　users_remove_path %>
+    </div>
+
+   </div>
+</div>
