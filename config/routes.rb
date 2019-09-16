@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+
+  ###Devise
+  #Users::~~DeviseController
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+
+  # #Administrators::~~DeviseController
+  devise_for :administrators, controllers: {
+    sessions:      'administrators/sessions',
+    registrations: 'administrators/registrations'
+  }
+
   get 'users/show'
   get 'users/edit'
   get 'users/remove'
@@ -84,13 +99,7 @@ Rails.application.routes.draw do
 
 
 
-  ###Devise
-  #Users::~~DeviseController
-  devise_for :users
 
-
-  #Administrators::~~DeviseController
-  devise_for :administrators
 
 end
 
