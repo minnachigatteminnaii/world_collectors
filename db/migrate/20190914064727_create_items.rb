@@ -7,7 +7,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :label_name
       t.string :category
       t.integer :price, null: false
-      t.integer :stock, null: false, default: 0
       t.text :jacket_image_id
       t.integer :sales_management, null: false, default: 0
       t.integer :listing_stop, null: false, default: 0
