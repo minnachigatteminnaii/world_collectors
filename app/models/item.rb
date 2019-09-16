@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
     has_many :disks, inverse_of: :item, dependent: :destroy
     accepts_nested_attributes_for :disks,
-                    reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
+                    reject_if: :all_blank, allow_destroy: true
 
     has_many :users, through: :favorites
     has_many :favorites
