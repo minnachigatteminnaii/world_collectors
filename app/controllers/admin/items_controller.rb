@@ -1,5 +1,17 @@
 class Admin::ItemsController < ApplicationController
 
+    def show
+        @item = Item.find(params[:id])
+        #在庫数の計算
+        @stock = 0
+        @item.arrivals.each do |item_arrival|
+            @stock += item_arrival.quantity
+        end
+        @item.orders_items.each do |order_item|
+            @stock -= order_item.quantity
+        end
+    end
+
     def new
         @item = Item.new
 		@disk = @item.disks.build

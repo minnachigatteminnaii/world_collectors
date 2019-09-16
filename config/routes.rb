@@ -74,7 +74,7 @@ Rails.application.routes.draw do
   #Admin::ItemsController
   namespace :admin do
     resources :items, only: [:index, :show, :edit, :update, :new, :create]
-    put 'items/stop/:id', to: 'items#stop', as: :stop_path
+    put 'items/stop/:id', to: 'items#stop', as: :stop
   end
 
   #Admin::ArtistsController
