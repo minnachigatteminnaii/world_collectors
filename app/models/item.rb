@@ -4,7 +4,11 @@ class Item < ApplicationRecord
     has_many :arrivals
     has_many :orders, through: :orders_items
     has_many :orders_items
-    has_many :disks
+
+    has_many :disks, inverse_of: :item, dependent: :destroy
+    accepts_nested_attributes_for :disks,
+                    reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
+
     has_many :users, through: :favorites
     has_many :favorites
     belongs_to :artist

@@ -1,0 +1,11 @@
+<div class="nested-fields">
+    <div class="form-group">
+        <%= m.label :song_order, "曲順" %>
+        <%= m.number_field :song_order, class:"form-control" %>
+    </div>
+    <div class="form-group">
+        <%= m.label :name, "曲名" %>
+        <%= m.text_field :name, class:"form-control" %>
+    </div>
+    <%= link_to_remove_association "削除", m %>
+</div>
