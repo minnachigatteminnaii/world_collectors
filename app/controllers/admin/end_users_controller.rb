@@ -5,6 +5,8 @@ PER = 10
 user = User.all
 @users = User.page(params[:page]),per(PER)
 @user = User.find(params[:id])
+User.where(is_delete: 0)
+	
 
 end
 
