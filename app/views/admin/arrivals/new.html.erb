@@ -1,0 +1,15 @@
+<div class="row">
+<%= form_tag(url: admin_arrivals_path) do |f| %>
+ 
+    <h4>入荷日時</h4>
+    <%= text_area_tag :arrival_date %>
+ 
+    <h4>入荷した商品</h4>
+    <%= text_area_tag :body %>
+
+    <h4>個数</h4>
+    <%= text_area_tag :quantity %>
+ 
+    <%= submit_tag '追加' %>
+ 
+<% end %>
