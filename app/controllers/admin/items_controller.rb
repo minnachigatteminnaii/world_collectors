@@ -8,6 +8,12 @@ class Admin::ItemsController < ApplicationController
         @genres = Genre.all
     end
 
+    def create
+        item = Item.new(item_params)
+        item.save
+        redirect_to new_admin_item_url
+    end
+
 
     private
 

@@ -17,10 +17,9 @@ class Item < ApplicationRecord
     
 
     validates :item_name, presence: true
-    validates :artist_name, presence: true
-    validates :category, presence: true
+    validates :artist_id, presence: true
+    validates :genre_id, presence: true
     validates :price, presence: true
-    validates :stock, presence: true
     validates :sales_management, presence: true
     validates :listing_stop, presence: true
 

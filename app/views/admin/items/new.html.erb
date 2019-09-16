@@ -1,7 +1,7 @@
 <div class="row">
 	<h1>商品追加</h1>
 
-	<%= form_for(@item, url: new_admin_item_path) do |f| %>
+	<%= form_for(@item, url: admin_items_path) do |f| %>
 
 		<div class="form-group">
 			<%= f.label :item_name, "商品名" %>
@@ -10,7 +10,7 @@
 
 		<div class="form-group">
 			<%= f.label :artist_id, "アーティスト名" %>
-			<%= f.collection_select :artist_id, @Artist, :id, :name, class:"form-control" %>
+			<%= f.collection_select :artist_id, @artists, :id, :name, class:"form-control" %>
 		</div>
 
 		<div class="form-group">
@@ -20,7 +20,7 @@
 
 		<div class="form-group">
             <%= f.label :genre_id, "ジャンル名" %>
-            <%= f.collection_select :genre_id, @Genre, :id, :name, class:"form-control" %>
+            <%= f.collection_select :genre_id, @genres, :id, :name, class:"form-control" %>
         </div>
         
         <div class="form-group">
@@ -31,7 +31,7 @@
         <h3>ディスク名</h3>
         <div class="disks">
             <%= f.fields_for :disks do |disk| %>
-                <%= render 'disk_fields', d: disk %>
+                <%= render 'disk_fields', f: disk %>
             <% end %>
             <div class="links">
                 <%= link_to_add_association 'ディスクを追加', f, :disks %>
