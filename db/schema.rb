@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_072612) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "artists_items", force: :cascade do |t|
-    t.integer "artist_id", null: false
-    t.integer "item_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cart_items", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "item_id", null: false
@@ -81,13 +74,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_072612) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genre_items", force: :cascade do |t|
-    t.integer "genre_id", null: false
-    t.integer "item_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -96,15 +82,15 @@ ActiveRecord::Schema.define(version: 2019_09_14_072612) do
 
   create_table "items", force: :cascade do |t|
     t.string "item_name", null: false
-    t.string "artist_name", null: false
+    t.integer "artist_id", null: false
+    t.integer "genre_id", null: false
     t.string "label_name"
-    t.string "genre"
-    t.string "category", null: false
+    t.string "category"
     t.integer "price", null: false
     t.integer "stock", default: 0, null: false
     t.text "jacket_image_id"
-    t.integer "sales_management", null: false
-    t.integer "listing_stop", null: false
+    t.integer "sales_management", default: 0, null: false
+    t.integer "listing_stop", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
