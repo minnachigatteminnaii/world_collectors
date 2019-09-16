@@ -24,4 +24,6 @@ class User < ApplicationRecord
   validates :is_delete, presence: true
 
   enum is_delete: {  exist: 0, remove: 1 }
+
+  attachment :profile_image
 end
