@@ -26,6 +26,12 @@ class Admin::ItemsController < ApplicationController
         redirect_to edit_admin_item_url
     end
 
+    def stop
+        @item = Item.find(params[:id])
+        @item.update_attributes(listing_stop: stop)
+        redirect_to admin_items_path
+    end
+
 
     private
 
