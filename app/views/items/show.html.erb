@@ -10,17 +10,22 @@
         <div>
             <p><%= @item.item_name %></p>
             <p><%= @item.label_name %></p>
-            <p><%= @item.genre %></p>
+            <p><%= @item.artist.name %></p>
+            <p><%= @item.genre.name %></p>
             <p><%= @item.price %></p>
             <p><%= @item.sales_management %></p>
         </div>
     </div>
 
     <div class="col-md-3">
-        <%= form_for(@cart_item, url: carts_path) do |f| %>
-            <%= f.hidden_field :item_id, value: @item.id %>
-            <%= f.select :quantity, options_for_select((1..@item.stock).to_a, 1) %>
-            <%= f.submit 'カートへ追加', class:"btn btn-primary" %>
+        <% if current_user.cart_items.find_by(item_id: @item.id) %>
+            <p>商品は既にカートに追加されています！</p>
+        <% else %>
+            <%= form_for(@cart_item, url: carts_path) do |f| %>
+                <%= f.hidden_field :item_id, value: @item.id %>
+                <%= f.select :quantity, options_for_select((1..@stock).to_a, 1) %>
+                <%= f.submit 'カートへ追加', class:"btn btn-primary" %>
+            <% end %>
         <% end %>
     </div>
 </div>

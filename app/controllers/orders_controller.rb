@@ -39,7 +39,24 @@ class OrdersController < ApplicationController
 
     def create
         @order = current_user.orders.build(order_params)
+
+        #購入レコードの作成
         @order.save
+
+        #購入商品レコードの作成
+        current_user.cart_items.each do |cart_item|
+            o_quantity = cart_item.quantity
+            o_item_id = cart_item.item.id
+
+            order_item = current_user.order_items.build(item_id: o_item_id, quantity: o_quantity)
+            order_item.save
+        end
+
+        #ログインしているユーザーのカート商品レコードの削除
+        current_user.cart_items.each do |cart_item|
+            cart_item.destroy
+        end
+
         #購入日時
         @order_date = @order.created_at
         redirect_to order_date_path(@order_date)
