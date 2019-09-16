@@ -10,8 +10,20 @@ class Admin::ItemsController < ApplicationController
 
     def create
         item = Item.new(item_params)
-        item.save!
+        item.save
         redirect_to new_admin_item_url
+    end
+
+    def edit
+        @item = Item.find(params[:id])
+        @artists = Artist.all
+        @genres = Genre.all
+    end
+
+    def update
+        @item = Item.find(params[:id])
+        @item.update_attributes(item_params)
+        redirect_to edit_admin_item_url
     end
 
 

@@ -1,0 +1,51 @@
+<div class="row">
+    <h1>商品編集</h1>
+
+    <%= form_for(@item, url: admin_item_path(@item)) do |f| %>
+        <div class="form-group">
+            <%= f.attachment_field :jacket_image %>
+        </div>
+
+		<div class="form-group">
+			<%= f.label :item_name, "商品名" %>
+			<%= f.text_field :item_name, class:"form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :artist_id, "アーティスト名" %>
+			<%= f.collection_select :artist_id, @artists, :id, :name, class:"form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :label_name, "レーベル名" %>
+			<%= f.text_field :label_name, class:"form-control" %>
+		</div>
+
+		<div class="form-group">
+            <%= f.label :genre_id, "ジャンル名" %>
+            <%= f.collection_select :genre_id, @genres, :id, :name, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+			<%= f.label :category, "大陸名" %>
+			<%= f.text_field :category, class:"form-control" %>
+		</div>
+        
+        <div class="form-group">
+            <%= f.label :price, "商品価格" %>
+            <%= f.number_field :price, class:"form-control" %>
+        </div>
+
+        <h3>ディスク名</h3>
+        <div class="disks">
+            <%= f.fields_for :disks do |disk| %>
+                <%= render 'disk_fields', f: disk %>
+            <% end %>
+            <div class="links">
+                <%= link_to_add_association 'ディスクを追加', f, :disks %>
+            </div>
+        </div>
+
+        <%= f.submit '商品を編集' %>
+	<% end %>
+</div>
