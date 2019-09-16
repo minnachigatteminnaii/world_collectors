@@ -17,11 +17,15 @@
       <% else %>
         <%= render 'layouts/not_login_header' %>
       <% end %>
-
+    
     <div class="container">
       <%= yield %>
     </div>
 
-      <%= render 'layouts/footer' %>
+    <% if user_signed_in? %>
+        <%= render 'layouts/login_footer' %>
+      <% else %>
+        <%= render 'layouts/not_login_footer' %>
+      <% end %>
   </body>
 </html>

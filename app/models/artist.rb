@@ -1,6 +1,5 @@
 class Artist < ApplicationRecord
-    has_many :items, through: :artists_items
-    has_many :artists_items
+    has_many :items
 
     validates :name, presence: true
 end
