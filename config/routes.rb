@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/edit'
+  get 'users/remove'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   ###ルートURL
@@ -14,10 +17,10 @@ Rails.application.routes.draw do
       put 'unsubscribe'
     end
   end
-  
+
   #ItemsController
   resources :items, only: :show
-  get '/items/category/:category_id', to: 'items#category'
+  get '/items/category/:category_id', to: 'items#category', as: :categoryr
 
   #CartsController
   resources :carts, only: [:index, :create, :destroy]
