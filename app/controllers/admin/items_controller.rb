@@ -40,7 +40,7 @@ class Admin::ItemsController < ApplicationController
 
     def stop
         @item = Item.find(params[:id])
-        @item.update_attributes(listing_stop: stop)
+        @item.update_attributes(listing_stop: 1)
         redirect_to admin_items_path
     end
 
