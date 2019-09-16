@@ -5,12 +5,10 @@ class Item < ApplicationRecord
     has_many :orders, through: :orders_items
     has_many :orders_items
     has_many :disks
-    has_many :artists, through: :artists_items
-    has_many :artists_items
-    has_many :genres, through: :genres_items
-    has_many :genres_items
     has_many :users, through: :favorites
     has_many :favorites
+    belongs_to :artist
+    belongs_to :genre
 
     
 
