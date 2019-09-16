@@ -32,11 +32,12 @@ Rails.application.routes.draw do
   #OrdersController
   resources :orders, only: [:new, :create] do
     collection do
-      get 'confirm_get' ##設計書と違う点
-      post 'confirm_post' ##設計書と違う点
-      get 'done'
+      #get 'confirm' ##設計書と違う点
+      post 'confirm' ##設計書と違う点
+      #get 'done'
     end
   end
+  get '/orders/done/:date', to: 'orders#done', as: :order_date
 
   #FavoritesController
   resources :favorites, only: [:index, :create, :destroy]

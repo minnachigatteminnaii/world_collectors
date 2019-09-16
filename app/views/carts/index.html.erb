@@ -1,23 +1,24 @@
 <div class="row">
-    <% @user_items.each do |item| %>
+    #eachで回して、@user_cart_itemsから、個々のcart_itemを取り出す
+    #（そうしないと、"cart_item.item.~"のような記述はできない)
+    # <% if user_signed_in? %> #ログイン画面作成後削除して下さい。
+    <% @user_cart_items.each do |cart_item| %>      
         <div class="row">
             <div class="col-md-4">
-                <%= attachment_image_tag item, :jacket_image %>
+                <%= attachment_image_tag cart_item.item, :jacket_image %>
             </div>
 
             <div class="col-md-4">
-                #item.cart_items.find_by(user_id: current_user.id)でitemとcurrent_userに紐づく
-                #cart_itemsテーブルのレコードを持ってくる
                 <div>
-                    <p><%= item.item_name %></p>
-                    <p><%= item.artist_name %></p>
-                    <p><%= item.sales_management %></p>
+                    <p><%= cart_item.item.item_name %></p>
+                    <p><%= cart_item.item.artist_name %></p>
+                    <p><%= cart_item.item.sales_management %></p>
                 </div>
+
                 <div>
-                    <%= form_for(item.cart_items.find_by(user_id: current_user.id), 
-                                        url: cart_path(item.id)) do |f| %>
-                        <%= f.select :quantity, options_for_select((1..item.quantity).to_a,
-                                        item.cart_items.find_by(user_id: current_user.id).quantity) %>
+                    <%= form_for(cart_item, url: cart_path(cart_item)) do |f| %>
+                        <%= f.select :quantity, options_for_select((1..cart_item.item.stock).to_a,
+                                        cart_item.quantity) %>
                         <%= f.submit '変更', class:"btn btn-primary" %>
                     <% end %>
                 </div>
@@ -25,11 +26,12 @@
 
             <div class="col-md-4">
                 <div>
-                        <h3><%= item.price * item.cart_items.find_by(user_id: current_user.id).quantity %></h3>
+                    <h3><%= cart_item.item.price * cart_item.quantity %></h3>
                 </div>
+                
                 <div>
                     #関連するcart_itemsテーブルを特定できる値ををcarts#destroyにわたす。
-                    <%= link_to 'カートから削除', cart_path(item.id), method: :delete %>  
+                    <%= link_to 'カートから削除', cart_path(cart_item), method: :delete %>  
                 </div>
             </div>
         </div>
@@ -40,4 +42,5 @@
         <h2><%= @total_price %></h2> 
         <%= link_to '購入方法の選択', new_order_path, class:"btn btn-primary" %>
     </div>
+#<% end %> #ログイン画面作成後削除して下さい。
 </div>

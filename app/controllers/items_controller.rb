@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
+        @cart_item = current_user.cart_items.build
     end
 
     def category
