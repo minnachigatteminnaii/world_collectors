@@ -1,5 +1,5 @@
 class Disk < ApplicationRecord
-    belongs_to :item
+    belongs_to :item, optional: true
     has_many :musics, inverse_of: :disk, dependent: :destroy
     accepts_nested_attributes_for :musics, 
           reject_if: :all_blank, allow_destroy: true

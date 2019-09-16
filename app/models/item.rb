@@ -25,4 +25,6 @@ class Item < ApplicationRecord
 
     enum sales_management: { soldout: 0, onsale: 1 }
     enum listing_stop: { default: 0, stop: 1 }
+
+    attachment :jacket_image
 end
