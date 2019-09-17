@@ -6,3 +6,5 @@
         <td><%= link_to "在庫追加", admin_arrival_new(item.id) %></td>
     </tr>
 <% end %>
+
+<%= paginate @items %>
