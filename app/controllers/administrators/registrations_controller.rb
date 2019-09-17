@@ -6,13 +6,13 @@ class Administrators::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   # def new
-  #   super
-  # end
+  #    super
+  #  end
 
   # POST /resource
-  # def create
+  #  def create
   #   super
-  # end
+  #  end
 
   # GET /resource/edit
   # def edit

@@ -8,6 +8,17 @@
                 <%= attachment_image_tag cart_item.item, :jacket_image %>
             </div>
 
+
+            #在庫数の計算
+            <% stock = 0 %>
+            <% cart_item.item.arrivals.each do |item_arrival| %>
+                <% stock += item_arrival.quantity %>
+            <% end %>
+            <% cart_item.item.order_items.each do |order_item| %>
+                <% stock -= order_item.quantity %>
+            <% end %>
+            
+
             <div class="col-md-4">
                 <div>
                     <p><%= cart_item.item.item_name %></p>
@@ -17,12 +28,13 @@
 
                 <div>
                     <%= form_for(cart_item, url: cart_path(cart_item)) do |f| %>
-                        <%= f.select :quantity, options_for_select((1..cart_item.item.stock).to_a,
+                        <%= f.select :quantity, options_for_select((1..stock).to_a,
                                         cart_item.quantity) %>
                         <%= f.submit '変更', class:"btn btn-primary" %>
                     <% end %>
                 </div>
             </div>
+
 
             <div class="col-md-4">
                 <div>

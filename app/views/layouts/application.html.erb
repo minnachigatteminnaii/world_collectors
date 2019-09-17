@@ -18,12 +18,14 @@
         <%= render 'layouts/not_login_header' %>
       <% end %>
     
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <div class="container">
       <%= yield %>
     </div>
 
     <% if user_signed_in? %>
-        <%= render 'layouts/login_footer' %>
+        <%= render 'layouts/footer' %>
       <% else %>
         <%= render 'layouts/not_login_footer' %>
       <% end %>
