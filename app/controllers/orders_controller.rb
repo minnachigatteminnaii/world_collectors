@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
         current_user.cart_items.each do |cart_item|
             o_quantity = cart_item.quantity
             o_item_id = cart_item.item.id
-
+            #ここ違う（後でやり直す）
             order_item = current_user.order_items.build(item_id: o_item_id, quantity: o_quantity)
             order_item.save
         end

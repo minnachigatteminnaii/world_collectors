@@ -7,7 +7,7 @@
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to " MYpage ", user_path(current_user), %></li>
+          <li><%= link_to " MYpage ", user_path(current_user) %></li>
           <li><%= link_to " logout ", destroy_user_session_path, method: :delete %></li>
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
       </ul>

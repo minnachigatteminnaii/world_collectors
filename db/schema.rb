@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_072612) do
     t.string "label_name"
     t.string "category"
     t.integer "price", null: false
-    t.integer "stock", default: 0, null: false
     t.text "jacket_image_id"
     t.integer "sales_management", default: 0, null: false
     t.integer "listing_stop", default: 0, null: false
@@ -160,7 +159,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_072612) do
     t.text "address", null: false
     t.string "phone_number", null: false
     t.text "profile_image_id"
-    t.integer "is_delete", null: false
+    t.integer "is_delete", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
