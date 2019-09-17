@@ -1,20 +1,17 @@
 <div class="row">
-    #eachで回して、@user_cart_itemsから、個々のcart_itemを取り出す
-    #（そうしないと、"cart_item.item.~"のような記述はできない)
-    # <% if user_signed_in? %> #ログイン画面作成後削除して下さい。
     <% @user_cart_items.each do |cart_item| %>      
         <div class="row">
             <div class="col-md-4">
-                <%= attachment_image_tag cart_item.item, :jacket_image %>
+                <%= attachment_image_tag cart_item.item, :jacket_image, :fill, 50, 50 %>
             </div>
 
 
-            #在庫数の計算
+            <%#在庫数の計算 %>
             <% stock = 0 %>
             <% cart_item.item.arrivals.each do |item_arrival| %>
                 <% stock += item_arrival.quantity %>
             <% end %>
-            <% cart_item.item.order_items.each do |order_item| %>
+            <% cart_item.item.orders_items.each do |order_item| %>
                 <% stock -= order_item.quantity %>
             <% end %>
             
@@ -22,7 +19,7 @@
             <div class="col-md-4">
                 <div>
                     <p><%= cart_item.item.item_name %></p>
-                    <p><%= cart_item.item.artist_name %></p>
+                    <p><%= cart_item.item.artist.name %></p>
                     <p><%= cart_item.item.sales_management %></p>
                 </div>
 
@@ -42,7 +39,6 @@
                 </div>
                 
                 <div>
-                    #関連するcart_itemsテーブルを特定できる値ををcarts#destroyにわたす。
                     <%= link_to 'カートから削除', cart_path(cart_item), method: :delete %>  
                 </div>
             </div>
@@ -54,5 +50,4 @@
         <h2><%= @total_price %></h2> 
         <%= link_to '購入方法の選択', new_order_path, class:"btn btn-primary" %>
     </div>
-#<% end %> #ログイン画面作成後削除して下さい。
 </div>
