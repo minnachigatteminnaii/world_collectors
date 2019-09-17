@@ -13,9 +13,13 @@ Rails.application.routes.draw do
     registrations: 'administrators/registrations'
   }
 
-  get 'users/show'
-  get 'users/edit'
-  get 'users/remove'
+  devise_scope :user do
+    get '/logout', to: 'devise/sessions#destroy', as: :logout
+  end
+  #get 'users/show'
+  #get 'users/edit', to: 'users#edit'
+  get 'users/:id/remove/', to: 'users#remove', as: 'user_remove'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   ###ルートURL
@@ -28,7 +32,7 @@ Rails.application.routes.draw do
     collection do
       get 'order'
       get 'warn'
-      put 'unsubscribe'
+      patch 'unsubscribe'
     end
   end
 

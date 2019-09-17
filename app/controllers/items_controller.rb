@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+
     def index
        @items = Item.all
     end
@@ -19,4 +21,8 @@ class ItemsController < ApplicationController
     def category
         @category = category.where(category: params[:category_id])
     end
+
+  def check_login
+    redirect_to logout_path if current_user && current_user.active_flag != 'active'
+  end
 end

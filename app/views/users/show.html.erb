@@ -33,19 +33,19 @@
     	<%= @user.postal_code %>
     </div>
     <div class ="another-address">
-    	<%= link_to "その他の発送先", shopping_addresses_path(current_user.id) %>　
+    	<%= link_to "その他の発送先", shopping_addresses_path %>
     </div>
     <div class="prof-order">
-    	<%= link_to "購入履歴",　order_users_path(current_user.id) %>
+    	<%= link_to "購入履歴", order_users_path %>
     </div>
     <div class="prof-fav">
-    	<%= link_to "いいね一覧", favorites_path(current_user.id) %>
+    	<%= link_to "いいね一覧", favorites_path %>
     </div>
     <div class="prof-edit">
-    	<%= link_to "編集する", users_edit_path(current_user.id) %>
+    	<%= link_to "編集する", edit_user_path %>
     </div>
     <div class="prof-remove">
-    	<%= link_to "退会する"　users_remove_path %>
+    	<%= link_to "退会する",  user_remove_path %>
     </div>
 
    </div>
