@@ -94,11 +94,12 @@ Rails.application.routes.draw do
 
   #Admin::ArrivalsController
   namespace :admin do
-    resources :arrivals, only: [:index, :new, :create] do
+    resources :arrivals, only: [:index, :create] do
       collection do
         get 'result'
       end
     end
+    get "arrival/new/:item_id", to: "arrival#new", as: :arrival_new
   end
 
   #Admin::ContactsController
@@ -111,4 +112,3 @@ Rails.application.routes.draw do
 
 
 end
-
