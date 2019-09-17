@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #after_action :sign_out, only[ :unsubscribe]
   def show
   	@user = User.find(params[:id])
      unless @user.id == current_user.id
@@ -14,10 +13,7 @@ class UsersController < ApplicationController
     end
   end
 def remove
-  @user = User.find(params[:id])
-  unless @user.id == current_user.id
-         redirect_to user_path(@current_user)
-   end
+  @user = User.find(current_user.id)
 end
 
   	def update
@@ -31,10 +27,11 @@ end
   end
 
   def unsubscribe
-    user = User.find(current_user.id)
-    user is_delete = remove
+    user = current_user
+    user.is_delete = 1
     user.save
-    redirect_to shopping_addresses_path
+    redirect_to logout_path
+    # redirect_to shopping_addresses_path
   end 
 
 private
