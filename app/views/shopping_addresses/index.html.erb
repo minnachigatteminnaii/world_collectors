@@ -11,15 +11,17 @@
              <h3>発送先郵便番号</h3>
              <%= shopping_address.shopping_addresses_postal_code %><br>
              <h3>発送先住所</h3>
-             <%= shopping_address.shopping_addresses_address %>
+             <%= shopping_address.shopping_addresses_address %><br>
              <h3>発送先電話番号</h3>
-             <%= shopping_address.shopping_addresses_phone_number %>
-             <h3></h3>
-             <%= link_to "編集"　 edit_shopping_addresses_path class: "btn btn-default" %>
-             
+             <%= shopping_address.shopping_addresses_phone_number %><br>
+             <%= link_to "編集",　edit_shopping_addresses_path class:'btn-sm btn-default' %>
+             <%= link_to "削除", shopping_address_path(@shopping_addresses), method: :delete, class:'btn-sm btn-danger' %>
              <% end %>
 
   </div>
 </div>
 </div>
-<%= paginate @users %>
+<div class="add-addresses">
+	<%= link_to "発送先追加"　new_shopping_addresses_path %>
+</div>
+<%= paginate @shopping_address %>
