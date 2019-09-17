@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     end
 
     def category
-        @category = category.where(category: params[:category_id])
+        @category = Item.where(category: params[:category_id])
     end
 
   def check_login
