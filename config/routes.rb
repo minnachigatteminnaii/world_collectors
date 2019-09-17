@@ -13,9 +13,10 @@ Rails.application.routes.draw do
     registrations: 'administrators/registrations'
   }
 
-  get 'users/show'
-  get 'users/edit'
-  get 'users/remove'
+  #get 'users/show'
+  #get 'users/edit', to: 'users#edit'
+  get 'users/remove/:id', to: 'users#remove', as: 'user_remove'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   ###ルートURL

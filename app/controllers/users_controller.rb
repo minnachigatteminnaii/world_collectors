@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  #after_action :sign_out, only[ :unsubscribe]
   def show
   	@user = User.find(params[:id])
      unless @user.id == current_user.id
@@ -12,20 +13,25 @@ class UsersController < ApplicationController
      redirect_to user_path(@current_user)
     end
   end
-
+def remove
+  @user = User.find(params[:id])
+  unless @user.id == current_user.id
+         redirect_to user_path(@current_user)
+   end
+end
 
   	def update
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "You have update user successfully."
-      redirect_to users_show_path(@user.id)
+      redirect_to user_path(@user.id)
     else
       render :edit
     end
   end
 
   def unsubscribe
-    user = user.find(current_user.id)
+    user = User.find(current_user.id)
     user is_delete = remove
     user.save
     redirect_to shopping_addresses_path
