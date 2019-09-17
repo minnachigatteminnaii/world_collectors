@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_072612) do
     t.string "label_name"
     t.string "category"
     t.integer "price", null: false
-    t.integer "stock", default: 0, null: false
     t.text "jacket_image_id"
     t.integer "sales_management", default: 0, null: false
     t.integer "listing_stop", default: 0, null: false

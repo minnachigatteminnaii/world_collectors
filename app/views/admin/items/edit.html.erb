@@ -1,7 +1,7 @@
 <div class="row">
-	<h1>商品追加</h1>
+    <h1>商品編集</h1>
 
-    <%= form_for(@item, url: admin_items_path) do |f| %>
+    <%= form_for(@item, url: admin_item_path(@item)) do |f| %>
         <div class="form-group">
             <%= f.attachment_field :jacket_image %>
         </div>
@@ -46,6 +46,6 @@
             </div>
         </div>
 
-        <%= f.submit '商品を追加' %>
+        <%= f.submit '商品を編集' %>
 	<% end %>
 </div>
