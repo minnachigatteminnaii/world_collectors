@@ -35,7 +35,7 @@
 
             <div class="col-md-4">
                 <div>
-                    <h3><%= cart_item.item.price * cart_item.quantity %></h3>
+                    <h3><%= ((cart_item.item.price * cart_item.quantity) * 1.08).floor %></h3>  #1.08
                 </div>
                 
                 <div>

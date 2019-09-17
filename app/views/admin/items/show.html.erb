@@ -4,7 +4,7 @@
         <p><%= @item.item_name %></p>
         <p><%= @item.label_name %></p>
         <p><%= @item.genre.name %></p>
-        <p><%= @item.price %></p>
+        <p><%= (@item.price * 1.08).floor %></p>  #1.08
         <p><%= @stock %>
         <p><%= @item.sales_management %></p>
     </div>

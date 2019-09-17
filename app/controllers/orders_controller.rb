@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 		#合計金額の計算
         @total_price = 0
         @user_cart_items.each do |cart_item|
-            @total_price += cart_item.quantity * cart_item.item.price
+            @total_price += ((cart_item.quantity * cart_item.item.price) * 1.08).floor #1.08
         end
     end
 
@@ -51,7 +51,8 @@ class OrdersController < ApplicationController
         current_user.cart_items.each do |cart_item|
             o_quantity = cart_item.quantity
             o_item_id = cart_item.item.id
-            o_item_price = cart_item.quantity * cart_item.item.price
+            o_item_price = ((cart_item.quantity * cart_item.item.price) * 1.08).floor  #1.08
+
             order_item = @order.orders_items.build(item_id: o_item_id, quantity: o_quantity, price: o_item_price)
             order_item.save!
 
