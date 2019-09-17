@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+　　　<div class="addresses-list">
+		<h2></h2>
+		
+		  	<% @shopping_addresses.each do |shopping_address| %>
+		  	<h3>発送先名義</h3>
+             <%= shopping_address.shopping_first_name %> <%= shopping_address.shopping_last_name %><br>
+            <h3>発送先名義（カナ）</h3>
+             <%= shopping_address.shopping_kana_first %> <%= shopping_address.shopping_kana_last %><br>
+             <h3>発送先郵便番号</h3>
+             <%= shopping_address.shopping_addresses_postal_code %><br>
+             <h3>発送先住所</h3>
+             <%= shopping_address.shopping_addresses_address %>
+             <h3>発送先電話番号</h3>
+             <%= shopping_address.shopping_addresses_phone_number %>
+             <h3></h3>
+             <%= link_to "編集"　 edit_shopping_addresses_path class: "btn btn-default" %>
+             
+             <% end %>
+
+  </div>
+</div>
+</div>
+<%= paginate @users %>
