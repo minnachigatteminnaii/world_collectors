@@ -4,7 +4,11 @@ class Item < ApplicationRecord
     has_many :arrivals
     has_many :orders, through: :orders_items
     has_many :orders_items
-    has_many :disks
+
+    has_many :disks, inverse_of: :item, dependent: :destroy
+    accepts_nested_attributes_for :disks,
+                    reject_if: :all_blank, allow_destroy: true
+
     has_many :users, through: :favorites
     has_many :favorites
     belongs_to :artist
@@ -13,13 +17,14 @@ class Item < ApplicationRecord
     
 
     validates :item_name, presence: true
-    validates :artist_name, presence: true
-    validates :category, presence: true
+    validates :artist_id, presence: true
+    validates :genre_id, presence: true
     validates :price, presence: true
-    validates :stock, presence: true
     validates :sales_management, presence: true
     validates :listing_stop, presence: true
 
     enum sales_management: { soldout: 0, onsale: 1 }
     enum listing_stop: { default: 0, stop: 1 }
+
+    attachment :jacket_image
 end

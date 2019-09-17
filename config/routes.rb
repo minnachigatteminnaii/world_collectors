@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   ###Devise
   #Users::~~DeviseController
   devise_for :users, controllers: {
@@ -75,7 +74,17 @@ Rails.application.routes.draw do
   #Admin::ItemsController
   namespace :admin do
     resources :items, only: [:index, :show, :edit, :update, :new, :create]
-    put 'items/stop/:id', to: 'items#stop', as: :stop_path
+    put 'items/stop/:id', to: 'items#stop', as: :stop
+  end
+
+  #Admin::ArtistsController
+  namespace :admin do
+    resources :artists, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
+  #Admin::GenresController
+  namespace :admin do
+    resources :genres, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   #Admin::OrdersControler
