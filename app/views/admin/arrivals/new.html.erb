@@ -1,0 +1,14 @@
+<div class="row">
+<%= form_for(@arrival, url: admin_arrivals_path) do |f| %>
+ 
+ <%= f.hidden_field :item_id, :value => params[:item_id] %>
+
+    <h4>入荷日時</h4>
+    <%= f.date_field :arrival_date %> 
+
+    <h4>個数</h4>
+    <%= f.number_field :quantity %>
+ 
+    <%= f.submit '追加' %>
+
+<% end %>
