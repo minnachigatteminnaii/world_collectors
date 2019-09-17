@@ -3,13 +3,13 @@
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
       <span>World Collectors</span>
-      <span class="text-right">%= user.name %></span>
+      <span class="text-right" %= user.name %></span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
           <li><%= link_to " MYpage ", user_path(current_user) %></li>
           <li><%= link_to " logout ", destroy_user_session_path, method: :delete %></li>
-          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+           <li><%= link_to " cart", carts_path, class: "glyphicon glyphicon-shopping-cart" %></li>
       </ul>
     </nav>
   </div>
