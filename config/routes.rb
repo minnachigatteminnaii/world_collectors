@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   #CartsController
   resources :carts, only: [:index, :create, :destroy]
-  put '/carts/:id', to: 'carts#change'
+  patch '/carts/:id', to: 'carts#change'
 
   #Shopping_AddressesController
   resources :shopping_addresses, only: [:index, :new, :create, :edit, :update, :destroy]
@@ -99,7 +99,7 @@ Rails.application.routes.draw do
         get 'result'
       end
     end
-    get "arrival/new/:item_id", to: "arrival#new", as: :arrival_new
+    get "arrivals/new/:item_id", to: "arrivals#new", as: :arrival_new
   end
 
   #Admin::ContactsController

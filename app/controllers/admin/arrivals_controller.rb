@@ -4,9 +4,14 @@ class Admin::ArrivalsController < ApplicationController
     end     
 
     def create
-        @arrival = Arrival.new
-        @arrival.save
-        redirect_to admin_arrivals_url
+        @arrival = Arrival.new(arrrival_params)
+        @arrival.save!
+        #入荷時に商品の販売ステータスを変更する
+        status = @arrival.item.sales_management 
+        if status == "soldout"
+            @arrival.item.update_attributes(sales_management: 1)
+        end
+        redirect_to admin_items_url
     end
 
     private

@@ -7,11 +7,10 @@ class CartsController < ApplicationController
             @total_price += cart_item.quantity * cart_item.item.price
         end
     end
-    end
 
     def create
         @cart_item = current_user.cart_items.build(cart_item_params)
-        if @cart_item.save
+        if @cart_item.save!
             redirect_to root_url
         else
             redirect_to root_url
