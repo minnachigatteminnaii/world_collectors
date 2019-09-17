@@ -1,5 +1,10 @@
 class Admin::ItemsController < ApplicationController
 
+    def index
+        @items = Item.all
+
+    end
+
     def show
         @item = Item.find(params[:id])
         #在庫数の計算
