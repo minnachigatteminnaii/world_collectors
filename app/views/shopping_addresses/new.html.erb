@@ -1,17 +1,21 @@
 <h1>発送先情報編集</h1>
-<%= form_for(@shopping_addreses) do |f| %> 
-
-  <h4>発送先名義</h4>
+<%= form_for(@shopping_address) do |f| %> 
+  <h4>発送先の宛名（姓・名</h4>
   <%= f.text_field :shopping_first_name %><%= f.text_field :shopping_last_name %><br>
-  <h4>発送先名義（カナ）</h4>
+
+  <h4>発送先の宛名（カナ姓・カナ名</h4>
   <%= f.text_field :shopping_kana_first %><%= f.text_field :shopping_kana_last %><br>
+
   <h4>発送先住所</h4>
   <%= f.text_field :shopping_addresses_address %><br>
+
   <h4>発送先郵便番号</h4>
   <%= f.text_field :shopping_addresses_postal_code %><br>
+
   <h4>発送先電話番号</h4>
-  <%= f.text_field :shopping_addresses_phone_number %>
- 
-  <%= f.submit 'create shopping_addreses' %>
- 
+  <%= f.text_field :shopping_addresses_phone_number %><br>
+
+  <%= f.submit '発送先を追加する', class:"btn btn-primary" %>
 <% end %>
+
+<%= link_to '発送先一覧へ戻る', shopping_addresses_path, class:"btn btn-primary" %>

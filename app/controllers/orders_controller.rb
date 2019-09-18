@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
 
         #住所に関連する郵便番号
         if s_address = ShoppingAddress.find_by(shopping_addresses_address: @shopping_address)
-            @shopping_postal_code = s_address.delivery_postal
+            @shopping_postal_code = s_address.shopping_addresses_postal_code
         else
             @shopping_postal_code = current_user.postal_code
         end
