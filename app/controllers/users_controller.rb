@@ -34,6 +34,10 @@ end
     # redirect_to shopping_addresses_path
   end 
 
+  def order
+    @orders = current_user.orders.page(params[:page]).per(5)
+  end
+
 private
 def user_params
     params.require(:user).permit(:first_name, :last_name, :kana_first, :kana_last, :phone_numeber, :address, :postal_code, :email, :profile_image)

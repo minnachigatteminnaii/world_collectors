@@ -12,7 +12,7 @@
             <p><%= @item.label_name %></p>
             <p><%= @item.artist.name %></p>
             <p><%= @item.genre.name %></p>
-            <p><%= @item.price %></p>
+            <p><%= (@item.price * 1.08).floor %></p>
             <p><%= @item.sales_management %></p>
         </div>
     </div>
@@ -27,5 +27,25 @@
                 <%= f.submit 'カートへ追加', class:"btn btn-primary" %>
             <% end %>
         <% end %>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>収録内容</h3>
+            <% @item.disks.each do |disk| %>
+                <h4><%= disk.name %></h4>
+                <table class="table">
+                    <tr>
+                        <th>順</th>
+                        <th>曲名</th>
+                    </tr>
+                    <% disk.musics.each do |music| %>
+                        <tr>   
+                            <td><%= music.song_order %></td>
+                            <td><%= music.name %></td>
+                        </tr>
+                    <% end %>
+                </table>
+            <% end %>
     </div>
 </div>
