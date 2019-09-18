@@ -4,6 +4,7 @@
         <td><%= item.item_name%></td>
         <td><%= (item.price * 1.08).floor%></td>
         <td><%= link_to "在庫追加", admin_arrival_new_path(item.id) %></td>
+        <%= link_to "商品詳細", admin_item_path(item) %>
     </tr>
 <% end %>
 

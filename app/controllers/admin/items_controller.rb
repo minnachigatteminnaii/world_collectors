@@ -2,7 +2,7 @@ class Admin::ItemsController < ApplicationController
     PER = 20
 
     def index
-        @items = Item.page(params[:page]).per(PER)
+        @items = Item.where(listing_stop: 0).page(params[:page]).per(PER)
 
     end
 
@@ -29,7 +29,7 @@ class Admin::ItemsController < ApplicationController
     def create
         item = Item.new(item_params)
         item.save
-        redirect_to new_admin_item_url
+        redirect_to admin_items_url
     end
 
     def edit
@@ -41,13 +41,13 @@ class Admin::ItemsController < ApplicationController
     def update
         @item = Item.find(params[:id])
         @item.update_attributes(item_params)
-        redirect_to edit_admin_item_url
+        redirect_to admin_item_url
     end
 
     def stop
         @item = Item.find(params[:id])
         @item.update_attributes(listing_stop: 1)
-        redirect_to admin_items_path
+        redirect_to admin_items_url
     end
 
 
