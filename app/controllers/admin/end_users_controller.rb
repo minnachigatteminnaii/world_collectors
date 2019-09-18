@@ -1,18 +1,17 @@
 class Admin::EndUsersController < ApplicationController
 
 def index
-PER = 10
-user = User.all
-@users = User.page(params[:page]),per(PER)
-@user = User.find(params[:id])
-User.where(is_delete: 0)
-	
+  per = 20
+  user = User.all
+  @users = User.page(params[:page]).per(per)
+  User.where(is_delete: 0)
+
 
 end
 
 def  show
  @user = User.find(params[:id])
-end	
+end
 
 def edit
  @user = User.find(params[:id])
