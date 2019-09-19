@@ -71,3 +71,4 @@ gem 'refile-mini_magick'
 gem 'kaminari'  #ページネーション
 gem 'ransack'   #検索機能
 gem 'cocoon'
+gem 'pry-rails'

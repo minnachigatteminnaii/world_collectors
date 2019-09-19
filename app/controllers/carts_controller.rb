@@ -4,7 +4,7 @@ class CartsController < ApplicationController
         #合計金額の計算
         @total_price = 0
         @user_cart_items.each do |cart_item|
-            @total_price += cart_item.quantity * cart_item.item.price
+            @total_price += ((cart_item.quantity * cart_item.item.price) * 1.08).floor #1.08
         end
     end
 

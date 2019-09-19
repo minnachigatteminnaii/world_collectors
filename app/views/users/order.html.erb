@@ -1,0 +1,39 @@
+<div class="row">
+    <% @orders.each do |order| %>
+        <div>
+            <table>
+                <tr>
+                    <th>購入日</th>
+                    <th>総計</th>
+                    <th>送付先</th>
+                    <th>ステータス</th>
+                </tr>
+                <tr>
+                    <td><%= order.created_at %></td>
+                    <td><%= order.total_price %></td>
+                    <td><%= order.delivery_address %><%= order.delivery_postal %></td>
+                    <td><%= order.status %></td>
+                </tr>
+            </table>
+
+            <div>
+                <h3>購入内容</h3>
+                <table class="table">
+                    <tr>
+                        <th>商品名</th>
+                        <th>個数</th>
+                        <th>小計</th>
+                    </tr>
+                    <% order.orders_items.each do |order_item| %>
+                        <tr>
+                            <td><%= order_item.item.item_name %></td>
+                            <td><%= order_item.quantity %></td>
+                            <td><%= order_item.price %></td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
+    <% end %>
+    <%= paginate @orders %>
+</div>

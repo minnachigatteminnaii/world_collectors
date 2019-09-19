@@ -1,11 +1,10 @@
 <div class="row">
-    ####質問
 	<%= form_tag(confirm_orders_path) do %>
         <div class="col-md-offset-2 col-md-8">
-            <p><%= current_user.name %></p>
+            <%= current_user.first_name %> <%= current_user.last_name %>
             <%= select_tag :shopping_address, options_for_select(@addresses) %>
-            <%= select_tag :payment_method, options_for_select(["代金引き換え", cash], ["銀行振り込み", bank], ["クレジット決済", credit]) %>
-        </div>
+            <%= select_tag :payment_methods, options_for_select(Order.payment_methods.keys) %>
+            </div>
 
         <div class="col-md-offset-2 col-md-8">
             <table>
@@ -14,11 +13,11 @@
                     <th>個数</th>
                     <th>金額</th>
                 </tr>
-                <% @user_cart_items do |cart_item| %>
+                <% @user_cart_items.each do |cart_item| %>
                     <tr>
                         <td><%= cart_item.item.item_name %></td>
                         <td><%= cart_item.quantity %></td>
-                        <td><%= cart_item.item.price * cart_item.quantity %></td>
+                        <td><%= ((cart_item.item.price * cart_item.quantity) * 1.08).floor %></td> #1.08
                     </tr>
                 <% end %>
             </table>
@@ -28,10 +27,10 @@
             <div>
                 <p>送料  500円</p>
                 <p>代引き手数料  150円</p>
-                <p>合計金額  <%= @total_price %></p>
+                <p>合計金額  <%= @total_price + 500 + 150 %></p>
             </div>
 
-            <%= f.submit '購入確認画面へ', confirm_orders_path, class:"btn btn-primary" %>
+            <%= submit_tag '購入確認画面へ', class:"btn btn-primary" %>
         </div>
 	<% end %>
 </div>

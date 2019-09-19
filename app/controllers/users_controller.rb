@@ -20,7 +20,7 @@ end
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "You have update user successfully."
-      redirect_to user_path(@user.id)
+      redirect_to user_url(@user)
     else
       render :edit
     end
@@ -32,11 +32,15 @@ end
     user.save
     redirect_to logout_path
     # redirect_to shopping_addresses_path
-  end 
+  end
+
+  def order
+    @orders = current_user.orders.page(params[:page]).per(5)
+  end
 
 private
 def user_params
-    params.require(:user).permit(:first_name, :last_name, :kana_first, :kana_last, :phone_numeber, :address, :postal_code, :email, :profile_image)
+    params.require(:user).permit(:first_name, :last_name, :kana_first, :kana_last, :phone_number, :address, :postal_code, :email, :profile_image , :encrypted_password)
 end
 
 end
