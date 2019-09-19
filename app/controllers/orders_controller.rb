@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+    before_action :logical_delete_user
     before_action :authenticate_user!
     before_action :empty_carts, only: :new
     before_action :check_stock, only: :create
