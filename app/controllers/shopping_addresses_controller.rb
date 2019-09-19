@@ -1,4 +1,6 @@
 class ShoppingAddressesController < ApplicationController
+  before_action :authenticate_user!
+
 	def index
 		per = 9
 	  @shopping_addresses = current_user.shopping_addresses.page(params[:page]).per(per)

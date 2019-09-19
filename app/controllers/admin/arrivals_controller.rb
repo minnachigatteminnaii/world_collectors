@@ -1,4 +1,6 @@
 class Admin::ArrivalsController < ApplicationController
+    before_action :authenticate_administrator!
+
     def new 
         @arrival = Arrival.new
     end     
