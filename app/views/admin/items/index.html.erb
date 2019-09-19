@@ -1,11 +1,23 @@
-<% @items.each do |item| %>
-    <tr>
-        <td><%= item.artist.name%></td>
-        <td><%= item.item_name%></td>
-        <td><%= (item.price * 1.08).floor%></td>
-        <td><%= link_to "在庫追加", admin_arrival_new_path(item.id) %></td>
-        <%= link_to "商品詳細", admin_item_path(item) %>
-    </tr>
-<% end %>
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>アーティスト名</th>
+            <th>商品名</th>
+            <th>価格</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <% @items.each do |item| %>
+            <tr>
+                <td><%= item.artist.name%></td>
+                <td><%= item.item_name%></td>
+                <td><%= (item.price * 1.08).floor%></td>
+                <td><%= link_to "在庫追加", admin_arrival_new_path(item.id) %></td>
+                <td><%= link_to "商品詳細", admin_item_path(item) %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
 
 <%= paginate @items %>

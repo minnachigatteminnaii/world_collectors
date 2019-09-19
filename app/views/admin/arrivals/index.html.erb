@@ -1,5 +1,18 @@
 <div class="row">
-    <% @admin_arrivals.each do |arrivals| %>
-        <div class="row">
-            <div class="col-md-4">
-            </div> 
+    <table class="table">
+        <tr>
+            <th>入荷日</th>
+            <th>入荷した商品</th>
+            <th>入荷個数</th>
+        </tr>
+        <% @arrivals.each do |arrival| %>
+            <tr>
+                <td><%= arrival.arrival_date %></td>
+                <td><%= arrival.item.item_name %></td>
+                <td><%= arrival.quantity %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= paginate @arrivals %>
