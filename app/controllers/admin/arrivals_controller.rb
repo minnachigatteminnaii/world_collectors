@@ -17,7 +17,7 @@ class Admin::ArrivalsController < ApplicationController
             if status == "soldout"
                 @arrival.item.update_attributes(sales_management: 1)
             end
-            redirect_to admin_items_url
+            redirect_to result_admin_arrivals_url
         else
             render 'new'
         end
