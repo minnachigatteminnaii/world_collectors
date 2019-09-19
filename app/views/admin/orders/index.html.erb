@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <% @receives.each do |recieve| %>
+            <%= link_to admin_order_path(recieve) do %>
+                <div>
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <td>受注ID <%= recieve.id %></td>
+                                <td>受注日 <%= recieve.created_at %></td>
+                                <td>ユーザー名 
+                                    <%= recieve.user.first_name %>
+                                    <%= recieve.user.last_name %>
+                                </td>
+                                <td>購入金額 <%= recieve.total_price %></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="row">
+                    　発送先: <%= recieve.delivery_address %>
+                    </div>
+                <div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

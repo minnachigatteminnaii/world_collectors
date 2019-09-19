@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>名前（姓・名）</h4>
+            <%= link_to admin_end_user_path(@receive.user) do %>
+                <%= @receive.user.first_name %>
+                <%= @receive.user.last_name %>
+            <% end %>
+
+            <h4>名前（カナ姓・カナ名）</h4>
+            <%= link_to admin_end_user_path(@receive.user) do %>
+                <%= @receive.user.kana_first %>
+                <%= @receive.user.kana_last %>
+            <% end %>
+        </div>
+
+        <div class="col-md-6">
+            <h3>メールアドレス</h3>
+            <h6><%= @receive.user.email %></h6>
+            <h3>パスワード</h3>
+            <h6><%= @receive.user.encrypted_password %></h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <h2>受注詳細</h2>
+            <% @receive.orders_items.each do |receive_items| %>
+                <table class="table">
+                    <tr>
+                        <th>商品名</th>
+                        <th>個数</th>
+                        <th>金額</th>
+                    </tr>
+
+                    <tr>
+                        <td><%= receive_items.item.item_name %></td>
+                        <td><%= receive_items.quantity %></td>
+                        <td><%= receive_items.price %></td>
+                    </tr>
+                </table>
+            <% end %>
+
+            <h2>合計金額 <%= @receive.total_price %>円</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5>発送先電話番号</h5>
+        <p><%= @receive.user.phone_number %></p>
+    </div>
+
+    <div class="row">
+        <h5>発送先の郵便番号</h5>
+        <p><%= @receive.delivery_postal %></p>
+    </div>
+</div>
