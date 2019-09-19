@@ -1,4 +1,5 @@
 class Admin::EndUsersController < ApplicationController
+  before_action :authenticate_administrator!
 
 def index
   per = 20

@@ -1,4 +1,6 @@
 class Admin::ArtistsController < ApplicationController
+  before_action :authenticate_administrator!
+
   def index
     @artists = Artist.all
   end
