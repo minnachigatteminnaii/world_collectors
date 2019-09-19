@@ -72,7 +72,7 @@ Rails.application.routes.draw do
   #Admin::End_UsersController
   namespace :admin do
     resources :end_users, only: [:index, :show, :edit, :update]
-    put '/end_users/remove/:id', to: 'end_users#remove', as: :remove_path ##設計と違う箇所
+    patch '/end_users/remove/:id', to: 'end_users#remove', as: :remove ##設計と違う箇所
   end
 
   #Admin::ItemsController
