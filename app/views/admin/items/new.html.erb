@@ -44,10 +44,10 @@
                 <%= render 'disk_fields', f: disk %>
             <% end %>
             <div class="links">
-                <%= link_to_add_association 'ディスクを追加', f, :disks %>
+                <%= link_to_add_association 'ディスクを追加', f, :disks, class:"btn btn-primary" %>
             </div>
         </div>
 
-        <%= f.submit '商品を追加' %>
+        <%= f.submit '商品を追加', class:"btn btn-primary" %>
 	<% end %>
 </div>
