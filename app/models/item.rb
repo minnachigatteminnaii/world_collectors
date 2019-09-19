@@ -16,12 +16,14 @@ class Item < ApplicationRecord
 
     
 
-    validates :item_name, presence: true
+    validates :item_name, presence: true, length: { maximum: 200, minimum: 1 }
     validates :artist_id, presence: true
     validates :genre_id, presence: true
-    validates :price, presence: true
+    validates :price, presence: true, numericality: { only_integer: true }
     validates :sales_management, presence: true
     validates :listing_stop, presence: true
+    validates :label_name, length: { maximum: 100 }
+    validates :category, length: { maximum: 50 }
 
     enum sales_management: { soldout: 0, onsale: 1 }
     enum listing_stop: { default: 0, stop: 1 }

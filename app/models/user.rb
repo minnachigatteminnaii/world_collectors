@@ -12,14 +12,14 @@ class User < ApplicationRecord
   has_many :items, through: :favorites
   has_many :favorites
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :kana_first, presence: true
-  validates :kana_last, presence: true
+  validates :first_name, presence: true, length: { maximum: 50, minimum: 1 }
+  validates :last_name, presence: true, length: { maximum: 50, minimum: 1 }
+  validates :kana_first, presence: true, length: { maximum: 100, minimum: 1 }
+  validates :kana_last, presence: true, length: { maximum: 100, minimum: 1 }
   validates :postal_code, presence: true
   validates :email, presence: true
   validates :encrypted_password, presence: true
-  validates :address, presence: true
+  validates :address, presence: true, length: { maximum: 200, minimum: 1 }
   validates :phone_number, presence: true
   validates :is_delete, presence: true
 
