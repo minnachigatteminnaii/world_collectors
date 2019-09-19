@@ -1,7 +1,9 @@
 <div class="row">
-	<h1>商品追加</h1>
+    <h1>商品追加</h1>
 
     <%= form_for(@item, url: admin_items_path) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        
         <div class="form-group">
             <%= f.attachment_field :jacket_image %>
         </div>
