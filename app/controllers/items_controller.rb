@@ -2,7 +2,15 @@ class ItemsController < ApplicationController
 
 
     def index
-       @items = Item.all
+        if params[:category_id]
+             @items = Item.where(category: params[:category_id])
+         elsif params[:search]
+            @items = Item.search
+         else
+
+             @items = Item.all
+         end
+             
     end
 
     def show
@@ -19,7 +27,7 @@ class ItemsController < ApplicationController
     end
 
     def category
-        @category = category.where(category: params[:category_id])
+        @category = Item.where(category: params[:category_id])
     end
 
   def check_login
