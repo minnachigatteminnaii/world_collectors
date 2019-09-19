@@ -1,5 +1,5 @@
 <h1>発送先情報編集</h1>
-<%= form_for(@shopping_addreses) do |f| %> 
+<%= form_for(@shopping_address) do |f| %> 
 
   <h4>発送先名義</h4>
   <%= f.text_field :shopping_first_name %><%= f.text_field :shopping_last_name %><br>
@@ -12,6 +12,7 @@
   <h4>発送先電話番号</h4>
   <%= f.text_field :shopping_addresses_phone_number %>
  
-  <%= f.submit 'update shopping_addreses' %>
- 
+  <%= f.submit '発送先を編集する', class:"btn btn-primary" %>
 <% end %>
+
+<%= link_to '発送先一覧へ戻る', shopping_addresses_path, class:"btn btn-primary" %>

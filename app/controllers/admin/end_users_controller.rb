@@ -3,10 +3,7 @@ class Admin::EndUsersController < ApplicationController
 def index
   per = 20
   user = User.all
-  @users = User.page(params[:page]).per(per)
-  User.where(is_delete: 0)
-
-
+  @users = User.where(is_delete: 0).page(params[:page]).per(per)
 end
 
 def  show
@@ -16,6 +13,7 @@ end
 def edit
  @user = User.find(params[:id])
 end
+
 def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -27,15 +25,15 @@ def update
   end
 
 def remove
-    user = user.find(current_user.id)
-    user is_delete = remove
+    user = User.find(params[:id])
+    user.is_delete = 1
     user.save
     redirect_to admin_end_users_path
   end
 
 private
 def user_params
-    params.require(:user).permit(:first_name, :last_name, :kana_first, :kana_last, :phone_numeber, :address, :postal_code, :email, :profile_image)
+    params.require(:user).permit(:first_name, :last_name, :kana_first, :kana_last, :phone_number, :address, :postal_code, :email, :profile_image)
 end 
 
 end

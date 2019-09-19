@@ -1,46 +1,46 @@
 class ShoppingAddressesController < ApplicationController
 	def index
-		PER = 9
-		@user = User.find(params:[id])
-	    @shopping_addresses = @user.shopping_addresses
-	    @shopping_address Shopping_address.page(params[:page]),per(PER)
+		per = 9
+	  @shopping_addresses = current_user.shopping_addresses.page(params[:page]).per(per)
+  end
 
-	end
+  def new
+		@shopping_address = current_user.shopping_addresses.build
+  end
+  
 	def create
- 	@shopping_addresses = Shopping_addresses.new(shopping_addresses_params)
-    @shopping_addresses.user_id = current_user.id
-    if @shopping_addresses.save
+ 	  @shopping_address = current_user.shopping_addresses.build(shopping_address_params)
+    if @shopping_address.save!
       flash[:notice] = "新しい発送先を登録しました。"
       redirect_to shopping_addresses_path
     else
-      render :new
+      render 'new'
     end
-   end
+  end
+
 	def edit
-		@shopping_addresses = Shopping_addresses.find(params:[id])
-	end
-	def new
-		@shopping_addresses = Shopping_addresses.new
-	end
+		@shopping_address = ShoppingAddress.find(params[:id])
+  end
+  
 	def update
-      @shopping_addresses = Shopping_addresses.find(params[:id])
-      @shopping_addresses.user_id = current_user.id
-      if @shopping_addresses.update(shopping_address_params)
+      @shopping_address = ShoppingAddress.find(params[:id])
+      if @shopping_address.update_attributes(shopping_address_params)
         flash[:notice] = "登録先情報を更新しました。"
-        redirect_to shopping_address_path
+        redirect_to edit_shopping_address_path(@shopping_address)
       else
-       render :edit
+        render 'edit'
       end
-	end
+  end
+  
 	def destroy
-		shopping_addresses = Shopping_addresses.find(params[:id]) 
-        shopping_addresses.destroy
-        redirect_to shopping_addresses_path
+		shopping_address = ShoppingAddress.find(params[:id]) 
+    shopping_address.destroy
+    redirect_to shopping_addresses_path
 	end
 
 private
-def user_params
-    params.require(:user).permit(:shopping_first_name, :shopping_last_name, :shopping_kana_first, :shopping_kana_last,  :shopping_addresses_postal_code,  :shopping_addresses_address, :shopping_addresses_phone_number )
+def shopping_address_params
+    params.require(:shopping_address).permit(:shopping_first_name, :shopping_last_name, :shopping_kana_first, :shopping_kana_last, :shopping_addresses_postal_code, :shopping_addresses_address, :shopping_addresses_phone_number)
 end
 
 end

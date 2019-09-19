@@ -33,10 +33,10 @@
     	<%= @user.postal_code %>
     </div>
     <div class="prof-edit">
-    	<%= link_to "編集する", edit_admin_end_users_path(@user.id) class:'btn btn-danger' %>
+    	<%= link_to "編集する", edit_admin_end_user_path(@user.id), class:'btn btn-danger' %>
     </div>
     <div class="prof-remove">
-    	<%= link_to "ユーザーの退会処理を行う", user_path(@user.id), :method => "PUT" class:'btn btn-danger' %>
+    	<%= link_to "ユーザーの退会処理を行う", admin_remove_path(@user.id), method: :patch, class:'btn btn-danger' %>
     </div>
 
    </div>

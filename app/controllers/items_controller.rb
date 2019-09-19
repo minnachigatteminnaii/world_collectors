@@ -2,15 +2,7 @@ class ItemsController < ApplicationController
 
 
     def index
-        if params[:category_id]
-             @items = Item.where(category: params[:category_id])
-         elsif params[:search]
-            @items = Item.search
-         else
-
-             @items = Item.all
-         end
-             
+    #    @items = Item.all
     end
 
     def show
