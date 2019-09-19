@@ -1,6 +1,10 @@
 class Admin::ArrivalsController < ApplicationController
     before_action :authenticate_administrator!
 
+    def index
+        @arrivals = Arrival.page(params[:page]).per(20)
+    end
+
     def new 
         @arrival = Arrival.new
     end     
@@ -14,6 +18,9 @@ class Admin::ArrivalsController < ApplicationController
             @arrival.item.update_attributes(sales_management: 1)
         end
         redirect_to admin_items_url
+    end
+
+    def result
     end
 
     private
