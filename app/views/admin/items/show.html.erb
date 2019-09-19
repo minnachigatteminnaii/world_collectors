@@ -5,7 +5,7 @@
         <h4><small>レーベル名</small> <%= @item.label_name %></h4>
         <h4><small>ジャンル名</small> <%= @item.genre.name %></h4>
         <h4><small>商品価格</small> <%= (@item.price * 1.08).floor %></h4>
-        <h4><small>在庫数</small> <%= @stock %>
+        <h4><small>在庫数</small> <%= @stock %></h4>
         <h4><small>販売状況</small> <%= @item.sales_management %></h4>
     </div>
 
@@ -41,6 +41,7 @@
                     <% end %>
                 </table>
             <% end %>
-    </div>
-</div> 
+        </div>
+    </div> 
+</div>
 
