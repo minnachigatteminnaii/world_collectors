@@ -16,17 +16,20 @@
                             </tr>
                         </table>
                     </div>
+                </div>
+            <% end %>
                     <div class="row">
                         <div class="col-md-6">
                         　発送先: <%= recieve.delivery_address %>
                         </div>
 
                         <div class="col-md-6">
-                        　発送状況: <%= recieve.status %>
+                          <%= form_tag(change_admin_order_path(recieve), method: :patch) do %>
+                            発送状況: <%= select_tag :status, options_for_select(Order.statuses.keys, selected: recieve.status) %>
+                            <%= submit_tag '変更', class:"btn btn-primary" %>
+                          <% end %>
                         </div>
                     </div>
-                <div>
-            <% end %>
         <% end %>
     </div>
 </div>
