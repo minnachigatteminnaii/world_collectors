@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
-        @cart_item = current_user.cart_items.build
+        @cart_item = current_user&.cart_items&.build
         #在庫数の計算
         @stock = 0
         @item.arrivals.each do |item_arrival|
