@@ -4,15 +4,25 @@
             <th>アーティスト名</th>
             <th>商品名</th>
             <th>価格</th>
+            <th>在庫数</th>
             <th></th>
             <th></th>
         </tr>
 
         <% @items.each do |item| %>
+            <% stock = 0 %>
+            <% item.arrivals.each do |arrival| %>
+                <% stock += arrival.quantity %>
+            <% end %>
+            <% item.orders_items.each do |orders_item| %>
+                <% stock -= orders_item.quantity %>
+            <% end %>
+
             <tr>
                 <td><%= item.artist.name%></td>
                 <td><%= item.item_name%></td>
                 <td><%= (item.price * 1.08).floor%></td>
+                <td><%= stock %></td>
                 <td><%= link_to "在庫追加", admin_arrival_new_path(item.id) %></td>
                 <td><%= link_to "商品詳細", admin_item_path(item) %></td>
             </tr>
