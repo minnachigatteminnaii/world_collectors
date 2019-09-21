@@ -26,4 +26,24 @@ class User < ApplicationRecord
   enum is_delete: {  exist: 0, remove: 1 }
 
   attachment :profile_image
+
+  
+  #favorites関連
+
+  #いいねする
+  def iine(item)
+    favorite = favorites.build(item_id: item.id)
+    favorite.save
+  end
+
+  #いいねを外す
+  def uniine(item)
+    favorite = favorites.find_by(item_id: item.id)
+    favorite.destroy
+  end
+
+  #現在のユーザーがその商品に対していいねしているか
+  def iine?(item)
+    favorites.exists?(item_id: item.id)
+  end
 end
