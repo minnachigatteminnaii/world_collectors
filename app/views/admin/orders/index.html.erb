@@ -4,23 +4,32 @@
             <%= link_to admin_order_path(recieve) do %>
                 <div>
                     <div class="row">
-                        <table>
+                        <table class="table">
                             <tr>
-                                <td>受注ID <%= recieve.id %></td>
-                                <td>受注日 <%= recieve.created_at %></td>
-                                <td>ユーザー名 
+                                <td>受注ID: <%= recieve.id %></td>
+                                <td>受注日: <%= recieve.created_at %></td>
+                                <td>ユーザー名: 
                                     <%= recieve.user.first_name %>
                                     <%= recieve.user.last_name %>
                                 </td>
-                                <td>購入金額 <%= recieve.total_price %></td>
+                                <td>購入金額: <%= recieve.total_price %></td>
                             </tr>
                         </table>
                     </div>
-                    <div class="row">
-                    　発送先: <%= recieve.delivery_address %>
-                    </div>
-                <div>
+                </div>
             <% end %>
+                    <div class="row">
+                        <div class="col-md-6">
+                        　発送先: <%= recieve.delivery_address %>
+                        </div>
+
+                        <div class="col-md-6">
+                          <%= form_tag(change_admin_order_path(recieve), method: :patch) do %>
+                            発送状況: <%= select_tag :status, options_for_select(Order.statuses.keys, selected: recieve.status) %>
+                            <%= submit_tag '変更', class:"btn btn-primary" %>
+                          <% end %>
+                        </div>
+                    </div>
         <% end %>
     </div>
 </div>

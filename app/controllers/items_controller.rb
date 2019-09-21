@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     end
 
     def category
-        @category = Item.where(category: params[:category_id])
+        @category = Item.where(category: params[:category_id]).where(listing_stop: 0)
     end
 
   def check_login
