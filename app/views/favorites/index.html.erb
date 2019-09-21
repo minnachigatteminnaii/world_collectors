@@ -1,19 +1,21 @@
 <div class="row">
     <h3>いいね一覧</h3>
-
+    <hr>
     <% current_user.favorites.each do |fav| %>
-        <div class="row">
-            <div class="col-md-5">
-                <%= attachment_image_tag fav.item, :jacket_image, 
-                    :fill, 150, 150,  fallback: "m_e_others_500.png", size:'150x150' %>
-            </div>
+        <div class="col-md-offset-2">
+            <div class="row  border-item">
+                <div class="col-md-5">
+                    <%= attachment_image_tag fav.item, :jacket_image, 
+                        :fill, 170, 170,  fallback: "m_e_others_500.png", size:'170x170' %>
+                </div>
 
-            <div class="col-md-7">
-                <p><%= fav.item.item_name %></p>
-                <p><%= fav.item.label_name %></p>
-                <p><%= fav.item.artist.name %></p>
-                <p><%= (fav.item.price * 1.08).floor %></p>
-                <p><%= link_to '商品の詳細', item_path(fav.item) %>
+                <div class="col-md-5">
+                    <p class="index-font"><%= fav.item.item_name %></p>
+                    <p class="index-font"><%= fav.item.label_name %></p>
+                    <p class="index-font"><%= fav.item.artist.name %></p>
+                    <p class="index-font"><%= (fav.item.price * 1.08).floor %></p>
+                    <p class="index-font"><%= link_to '商品の詳細', item_path(fav.item) %>
+                </div>
             </div>
         </div>
     <% end %>
