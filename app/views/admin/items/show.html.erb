@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-md-4">
-        <%= attachment_image_tag @item, :jacket_image, :fill, 220, 220 %>
+        <%= attachment_image_tag @item, :jacket_image, :fill, 220, 220, fallback: "m_e_others_500.png", size:'220x220'  %>
     </div>
 
     <div class="col-md-2">
