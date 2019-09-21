@@ -3,7 +3,7 @@
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
       <h2><%= link_to " World Collectors ", root_path%></h2>
-      <span class="text-right" %= user.name %></span>
+      <span class="text-right text-muted"><%= current_user.first_name %> <%= current_user.last_name %>さんようこそ</span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">

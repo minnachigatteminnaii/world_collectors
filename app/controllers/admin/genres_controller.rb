@@ -8,8 +8,8 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    genre = Genre.new(genre_params)
-    if genre.save
+    @genre = Genre.new(genre_params)
+    if @genre.save
       redirect_to admin_genres_path
     else
       render 'new'
@@ -22,8 +22,11 @@ class Admin::GenresController < ApplicationController
 
   def update
     @genre = Genre.find(params[:id])
-    @genre.update_attributes(genre_params)
-    redirect_to admin_genres_path
+    if @genre.update_attributes(genre_params)
+      redirect_to admin_genres_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy

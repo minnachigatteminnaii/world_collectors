@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
-        @cart_item = current_user.cart_items.build
+        @cart_item = current_user&.cart_items&.build
         #在庫数の計算
         @stock = 0
         @item.arrivals.each do |item_arrival|
@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     end
 
     def category
-        @category = Item.where(category: params[:category_id])
+        @category = Item.where(category: params[:category_id]).where(listing_stop: 0)
     end
 
   def check_login

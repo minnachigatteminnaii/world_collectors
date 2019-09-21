@@ -27,4 +27,14 @@ class ApplicationController < ActionController::Base
         end
     end
 
+
+    private 
+
+        def logical_delete_user
+            if current_user.is_delete == 'remove'
+                flash[:alert] = 'このアカウントは現在使用することができません'
+                redirect_to root_path
+            end
+        end
+
 end

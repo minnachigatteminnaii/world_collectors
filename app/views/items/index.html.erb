@@ -7,7 +7,7 @@
         <% @items.each do |item| %>
             <div class="row">
                 <div class="col-md-4">
-                    <%= attachment_image_tag item, :jacket_image, :fill, 100, 100 %>
+                    <%= attachment_image_tag item, :jacket_image, :fill, 100, 100, fallback: "m_e_others_500.png", size:'110x110' %>
                 </div>
                 <div class="col-md-8">
                     <p><%= item.item_name%></p>

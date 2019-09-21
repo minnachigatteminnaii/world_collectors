@@ -1,18 +1,21 @@
 <div class="row">
     <div class="col-md-3">
-
+    <%= render 'layouts/category_continent' %>
     </div>
 
     <div class="col-md-9">
-        <% @category.each do |item| %>
-            <tr>
-                <td><%= attachment_image_tag item, :jacket_image, :fill,50,50 %></td>
-                <td><%= item.name%></td>
-                <td><%= item.label_name%></td>
-                <td><%= item.price%></td>
-                <td><%= link_to "link", item_show_path(item.id) %></td>
-
-            </tr>
-        <% end %>
+    <% @category.each do |item| %>
+        <div class="row">
+            <div class="col-md-4">
+                <%= attachment_image_tag item, :jacket_image, :fill, 100, 100, fallback: "m_e_others_500.png", size:'110x110'  %>
+            </div>
+            <div class="col-md-8">
+                <p><%= item.item_name%></p>
+                <p><%= item.label_name%></p>
+                <p><%= (item.price * 1.08).floor%></p>
+                <p><%= link_to "詳細を見る", item_path(item.id) %></p>
+            </div>
+        </div>
+    <% end %>
     </div>
 </div>

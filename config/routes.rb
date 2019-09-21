@@ -93,7 +93,11 @@ Rails.application.routes.draw do
 
   #Admin::OrdersControler
   namespace :admin do
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show] do
+      member do
+        patch 'change'
+      end
+    end
   end
 
   #Admin::ArrivalsController

@@ -5,6 +5,6 @@ class Disk < ApplicationRecord
           reject_if: :all_blank, allow_destroy: true
 
     #validates :item_id, presence: true
-    validates :name, presence: true
+    validates :name, presence: true, length: { maximum: 50, minimum: 1 }
 
 end

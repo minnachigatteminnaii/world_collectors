@@ -15,10 +15,14 @@
         </div>
 
         <div class="col-md-6">
-            <h3>メールアドレス</h3>
-            <h6><%= @receive.user.email %></h6>
-            <h3>パスワード</h3>
-            <h6><%= @receive.user.encrypted_password %></h6>
+            <h4>メールアドレス</h4>
+            <h5><%= @receive.user.email %></h5>
+
+            <h4>電話番号</h4>
+            <h5><%= @receive.user.phone_number %></h5>
+
+            <h4>発送先の郵便番号</h4>
+            <h5><%= @receive.delivery_postal %></h5>
         </div>
     </div>
 
@@ -45,13 +49,4 @@
         </div>
     </div>
 
-    <div class="row">
-        <h5>発送先電話番号</h5>
-        <p><%= @receive.user.phone_number %></p>
-    </div>
-
-    <div class="row">
-        <h5>発送先の郵便番号</h5>
-        <p><%= @receive.delivery_postal %></p>
-    </div>
 </div>

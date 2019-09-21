@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
+    before_action :logical_delete_user
     before_action :authenticate_user!
+    before_action :empty_carts, only: :new
     before_action :check_stock, only: :create
 
     def new
@@ -93,6 +95,14 @@ class OrdersController < ApplicationController
             params.require(:order).permit(:delivery_first_name, :delivery_last_name,
                     :delivery_kana_first, :delivery_kana_last ,:payment_methods, :delivery_postal, 
                     :delivery_address, :delivery_price, :status, :total_price)
+        end
+
+        #カートに商品が追加されていない場合エラーメッセージとともにトップにリダイレクトする
+        def empty_carts
+            if current_user.cart_items.blank?
+                flash[:alert] = "カート内に商品がございません"
+                redirect_to root_path
+            end
         end
 
         #在庫数が購入商品数より少ない場合リダイレクトする

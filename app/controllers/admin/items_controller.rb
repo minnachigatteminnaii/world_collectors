@@ -29,9 +29,14 @@ class Admin::ItemsController < ApplicationController
     end
 
     def create
-        item = Item.new(item_params)
-        item.save
-        redirect_to admin_items_url
+        @item = Item.new(item_params)
+        if @item.save
+            redirect_to admin_items_url
+        else
+            @artists = Artist.all
+            @genres = Genre.all
+            render 'new'
+        end
     end
 
     def edit
@@ -42,8 +47,13 @@ class Admin::ItemsController < ApplicationController
 
     def update
         @item = Item.find(params[:id])
-        @item.update_attributes(item_params)
-        redirect_to admin_item_url
+        if @item.update_attributes(item_params)
+            redirect_to admin_item_url
+        else
+            @artists = Artist.all
+            @genres = Genre.all
+            render 'edit'
+        end
     end
 
     def stop

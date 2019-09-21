@@ -1,5 +1,5 @@
 <div class="nested-fields">
-    <div class="form-group">
+    <div class="form-inline">
         <%= f.label :song_order, '曲順' %>
         <%= f.number_field :song_order, class:"form-control" %>
     </div>
@@ -7,5 +7,5 @@
         <%= f.label :name, "曲名" %>
         <%= f.text_field :name, class:"form-control" %>
     </div>
-    <%= link_to_remove_association "削除", f %>
+    <%= link_to_remove_association "この曲を削除", f, class:"btn btn-danger" %>
 </div>

@@ -1,7 +1,9 @@
 <div class="row">
-	<h1>商品追加</h1>
+    <h1>商品追加</h1>
 
     <%= form_for(@item, url: admin_items_path) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        
         <div class="form-group">
             <%= f.attachment_field :jacket_image %>
         </div>
@@ -28,7 +30,12 @@
 
         <div class="form-group">
 			<%= f.label :category, "大陸名" %>
-			<%= f.text_field :category, class:"form-control" %>
+            <label><%= f.radio_button :category, 'America', checked: "checked" %>America</label>
+            <label><%= f.radio_button :category, 'Europe' %>Europe</label>
+            <label><%= f.radio_button :category, 'Africa' %>Africa</label>
+            <label><%= f.radio_button :category, 'Asia' %>Asia</label>
+            <label><%= f.radio_button :category, 'Oceania' %>Oceania</label>
+            <label><%= f.radio_button :category, '不明' %>不明</label>
 		</div>
         
         <div class="form-group">
@@ -42,10 +49,10 @@
                 <%= render 'disk_fields', f: disk %>
             <% end %>
             <div class="links">
-                <%= link_to_add_association 'ディスクを追加', f, :disks %>
+                <%= link_to_add_association 'ディスクを追加', f, :disks, class:"btn btn-primary" %>
             </div>
         </div>
 
-        <%= f.submit '商品を追加' %>
+        <%= f.submit '商品を追加', class:"btn btn-primary" %>
 	<% end %>
 </div>
