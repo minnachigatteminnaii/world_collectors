@@ -11,13 +11,16 @@ class Admin::ArrivalsController < ApplicationController
 
     def create
         @arrival = Arrival.new(arrrival_params)
-        @arrival.save!
-        #入荷時に商品の販売ステータスを変更する
-        status = @arrival.item.sales_management 
-        if status == "soldout"
-            @arrival.item.update_attributes(sales_management: 1)
+        if @arrival.save
+            #入荷時に商品の販売ステータスを変更する
+            status = @arrival.item.sales_management 
+            if status == "soldout"
+                @arrival.item.update_attributes(sales_management: 1)
+            end
+            redirect_to result_admin_arrivals_url
+        else
+            render 'new'
         end
-        redirect_to admin_items_url
     end
 
     def result
