@@ -54,6 +54,58 @@
     width: 120px;
 }
 
+//ranking
+.rank-title {
+    color: rgba(218, 165, 32, 0.5);
+    font-weight: bold;
+}
+
+.ranking-border {
+    background-color: rgba(218, 165, 32, 0.2);
+    border-top: 1px solid rgba(218, 165, 32, 0.8);
+    border-bottom: 1px solid rgba(218, 165, 32, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 50px;
+}   
+
+.rank-item {
+    margin-right: 25px;
+    border-right: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+.rank-item:last-child {
+    border: 0;
+}
+
+.rank-item:first-child {
+    margin-left: 15px;
+}
+
+.rank-name {
+    padding-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rank_1 {
+    color: rgba(218, 165, 32, 0.9);
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+}
+
+.rank_1::before {
+    content: "👑";
+}
+
+.rank_2, .rank_3, .rank_4, .rank_5 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+}
+
 
 //category(partial)
 .border-category {
