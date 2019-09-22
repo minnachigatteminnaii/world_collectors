@@ -25,10 +25,14 @@
                 <p>商品は既にカートに追加されています！</p>
             <% else %>
                 <% if user_signed_in? %>
-                    <%= form_for(@cart_item, url: carts_path) do |f| %>
-                        <%= f.hidden_field :item_id, value: @item.id %>
-                        <%= f.select :quantity, options_for_select((1..@stock).to_a, 1) %>
-                        <%= f.submit 'カートへ追加', class:"btn btn-primary cart-btn" %>
+                    <% if @stock >= 1 %>
+                        <%= form_for(@cart_item, url: carts_path) do |f| %>
+                            <%= f.hidden_field :item_id, value: @item.id %>
+                            <%= f.select :quantity, options_for_select((1..@stock).to_a, 1) %>
+                            <%= f.submit 'カートへ追加', class:"btn btn-primary cart-btn" %>
+                        <% end %>
+                    <% else %>
+                        <p style="color: red; font-size: 18px; font-weight: bold;">この商品は現在品切れ中です！</p>
                     <% end %>
                 <% end %>
             <% end %>
