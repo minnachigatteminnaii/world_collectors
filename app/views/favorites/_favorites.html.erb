@@ -1,0 +1,6 @@
+<%= form_for(current_user.favorites.build, remote: true) do %>
+    <div><%= hidden_field_tag :item_id, item.id %></div>
+    <%= button_tag type: 'submit', name: nil, class: 'btn btn-default' do %>
+        <%= content_tag :span, '',class:"glyphicon glyphicon-heart-empty" %>
+    <% end %>
+<% end %>

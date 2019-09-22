@@ -1,3 +1,67 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-font {
+    padding-bottom: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+    border-bottom: 1px solid  whitesmoke;
+}
+
+.border-item {
+    border-bottom: 1px solid gainsboro;
+    border-radius: 3px;
+    margin-bottom: 13px;
+    padding: 10px;
+    width: 80%;
+}
+
+.border-item:last-child {
+    border-bottom: none;
+    border-radius: 3px;
+    margin-bottom: 13px;
+    padding: 10px;
+    width: 80%;
+}
+
+
+/* item-show */
+.song-order {
+    width: 100px;
+}
+
+.song-name {
+    width: 600px;
+}
+
+.item-show-font {
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+    border-bottom: 1px solid  whitesmoke;
+    color: darkblue;
+}
+
+#cart_item_quantity {
+    margin:10px 20px 40px 5px;
+    height: 25px;
+}
+
+.cart-btn {
+    width: 120px;
+}
+
+
+//category(partial)
+.border-category {
+    padding: 5px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+}
+
+.category-font {
+    font-size: 18px;
+}
