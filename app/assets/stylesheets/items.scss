@@ -28,6 +28,14 @@
 
 
 /* item-show */
+.item-show-padding {
+    margin-top: 30px;
+}
+
+.item-show-detail {
+    margin-top: 30px;
+}
+
 .song-order {
     width: 100px;
 }
@@ -65,13 +73,17 @@
     border-top: 1px solid rgba(218, 165, 32, 0.8);
     border-bottom: 1px solid rgba(218, 165, 32, 0.8);
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 5px;
     margin-bottom: 50px;
 }   
 
 .rank-item {
-    margin-right: 25px;
     border-right: 1px solid rgba(218, 165, 32, 0.3);
+    width: 150px !important;
+    text-align: center;
+}
+
+.rank-description {
 }
 
 .rank-item:last-child {
@@ -79,13 +91,12 @@
 }
 
 .rank-item:first-child {
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .rank-name {
     padding-top: 15px;
     font-weight: bold;
-    text-align: center;
 }
 
 .rank_1 {
@@ -100,7 +111,6 @@
 }
 
 .rank_2, .rank_3, .rank_4, .rank_5 {
-    text-align: center;
     font-size: 14px;
     font-weight: bold;
     font-family: Verdana,Helvetica,Arial,sans-serif;
@@ -116,4 +126,69 @@
 
 .category-font {
     font-size: 18px;
+}
+
+.category-box {
+    height: 440px;
+    border: 1px solid black;
+}
+
+.category-logo {
+    border: 1px solid tan;
+    border-radius: 20px;
+    height: 60px;
+    text-align: center;
+    line-height: 50px;
+    background-image: url(compass-2946959__480.jpg);
+    background-position: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    color: white;
+}
+
+.category-group {
+
+}
+
+.category {
+    padding: 15px 50px 8px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(244, 208, 90, 0.5);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.category:first-child {
+    padding: 30px 50px 8px;
+}
+
+.category-box {
+    border: 1px solid rgba(210, 180, 140, 0.9);
+    border-radius: 25px;
+    background-color: rgba(250, 240, 230, 0.5);
+}
+
+.category-padding {
+    margin-top: 20px;
+}
+
+
+//anchor
+.anchor {
+    margin-top: 70px;
+    text-align: center;
+    width: 35%;
+    height: 50px;
+    margin: 70px auto 20px;
+    background-color: rgba(238, 232, 170, 0.5);
+    border-radius: 15px;
+}
+
+.anchor-text {
+    font-size: 20px;
+    line-height: 50px;
+    
 }
