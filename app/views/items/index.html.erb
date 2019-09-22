@@ -18,17 +18,19 @@
         </div>
 
         <% @items.each do |item| %>
+            <%= link_to item_path(item.id) do%>
             <div class="row border-item">
                 <div class="col-md-4">
                     <%= attachment_image_tag item, :jacket_image, :fill, 150, 150, fallback: "m_e_others_500.png", size:'150x150' %>
                 </div>
                 <div class="col-md-8">
                     <p class="index-font"><%= item.item_name%></p>
+              　　　　<p><%= item.artist.name %></p>
                     <p class="index-font"><%= item.label_name%></p>
-                    <p class="index-font"><%= (item.price * 1.08).floor%></p>
-                    <p class="index-font"><%= link_to "詳細を見る", item_path(item.id) %></p>
+                    <p class="index-font">¥<%= ((item.price * 1.08).floor).to_s(:delimited)%>円</p>
                 </div>
             </div>
+            <% end %>
         <% end %>
     </div>
 </div>

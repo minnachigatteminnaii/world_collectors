@@ -13,7 +13,7 @@
                 <p class="item-show-font"><%= @item.label_name %></p>
                 <p class="item-show-font"><%= @item.artist.name %></p>
                 <p class="item-show-font"><%= @item.genre.name %></p>
-                <p class="item-show-font"><%= (@item.price * 1.08).floor %></p>
+                <p class="item-show-font">¥<%= ((@item.price * 1.08).floor).to_s(:delimited)%>円</p>
                 <p class="item-show-font"><%= @item.sales_management %></p>
             </div>
         </div>

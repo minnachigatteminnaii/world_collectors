@@ -1,8 +1,8 @@
 <div class="row">
-    <% @user_cart_items.each do |cart_item| %>      
+    <% @user_cart_items.each do |cart_item| %>
         <div class="row">
             <div class="col-md-4">
-                <%= attachment_image_tag cart_item.item, :jacket_image, :fill, 50, 50 %>
+                <%= attachment_image_tag cart_item.item, :jacket_image, :fill, 130, 130 %>
             </div>
 
 
@@ -14,7 +14,7 @@
             <% cart_item.item.orders_items.each do |order_item| %>
                 <% stock -= order_item.quantity %>
             <% end %>
-            
+
 
             <div class="col-md-4">
                 <div>
@@ -35,19 +35,19 @@
 
             <div class="col-md-4">
                 <div>
-                    <h3><%= ((cart_item.item.price * cart_item.quantity) * 1.08).floor %></h3>
+                    <h3>¥<%= (((cart_item.item.price * cart_item.quantity) * 1.08).floor).to_s(:delimited) %>円</h3>
                 </div>
-                
+
                 <div>
-                    <%= link_to 'カートから削除', cart_path(cart_item), method: :delete %>  
+                    <%= link_to 'カートから削除', cart_path(cart_item), method: :delete %>
                 </div>
             </div>
         </div>
     <% end %>
 
     <div class="row">
-        <h2>合計金額</h2>   
-        <h2><%= @total_price %></h2> 
+        <h2>合計金額</h2>
+        <h2>¥<%= @total_price.to_s(:delimited) %>円</h2>
         <%= link_to '購入方法の選択', new_order_path, class:"btn btn-primary" %>
     </div>
 </div>

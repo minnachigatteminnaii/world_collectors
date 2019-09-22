@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-offset-2 col-md-8">
         <p><%= @shopping_address %></p>
-        
+
         <div>
             <h2>購入内容</h2>
             <table>
@@ -16,7 +16,7 @@
                     <tr>
                         <td><%= cart_item.item.item_name %></td>
                         <td><%= cart_item.quantity %></td>
-                        <td><%= price %></td>
+                        <td>¥<%= price.to_s(:delimited) %>円</td>
                     </tr>
                     <% item_price += price %>
                 <% end %>
@@ -24,10 +24,10 @@
         </div>
 
         <div>
-            <p>送料 500円</p>
-            <p>代引き手数料 150円</p>
+            <p>送料： ￥500円</p>
+            <p>代引き手数料： ￥150円</p>
             <% total_price = item_price + 500 + 150 %>
-            <p>合計金額 <%= total_price %>円</p>
+            <p>合計金額： ￥<%= total_price.to_s(:delimited) %>円</p>
             <p>支払い方法 <%= @payment_method %></p>
         </div>
     </div>
