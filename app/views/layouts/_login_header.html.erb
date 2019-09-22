@@ -12,7 +12,7 @@
            <li><%= link_to " cart", carts_path, class: "glyphicon glyphicon-shopping-cart" %></li>
            <li>
             <%= search_form_for @search, url: root_path do |f| %>
-              <%= f.text_field :item_name_cont, placeholder: '名前を入力...' %>
+              <%= f.text_field :item_name_cont, placeholder: '商品名を入力...' %>
               <%= f.submit ("検索する") %>
             <% end %>
            </li>

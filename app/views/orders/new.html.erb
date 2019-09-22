@@ -17,7 +17,7 @@
                     <tr>
                         <td><%= cart_item.item.item_name %></td>
                         <td><%= cart_item.quantity %></td>
-                        <td><%= ((cart_item.item.price * cart_item.quantity) * 1.08).floor %></td>
+                        <td>￥<%= (((cart_item.item.price * cart_item.quantity) * 1.08).floor).to_s(:delimited) %>円</td>
                     </tr>
                 <% end %>
             </table>
@@ -25,9 +25,9 @@
 
         <div class="col-md-offset-2 col-md-8">
             <div>
-                <p>送料  500円</p>
-                <p>代引き手数料  150円</p>
-                <p>合計金額  <%= @total_price + 500 + 150 %>円</p>
+                <p>送料：  ￥500円</p>
+                <p>代引き手数料：  ￥150円</p>
+                <p>合計金額：  ￥<%= (@total_price + 500 + 150).to_s(:delimited)%>円</p>
             </div>
 
             <%= submit_tag '購入確認画面へ', class:"btn btn-primary" %>
