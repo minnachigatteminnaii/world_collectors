@@ -16,3 +16,28 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+header {
+  background-image: url("phonograph-albums-1031563_960_720.jpg");
+  height: 75px;
+  width:100%;
+  background-size:cover;
+  position: absolute;
+  top: 0;
+}
+
+ footer {
+  background-image: url("record-4043223_960_720.jpg");
+  height: 80px;
+  width:100%;
+  background-size:cover;
+  position: absolute;
+  bottom: 0;
+}
+
+.sidebar{
+	background-image: url("compass-3408928_960_720.jpg");
+	height: 100%;
+	width:100%;
+	background-size: cover;
+}
