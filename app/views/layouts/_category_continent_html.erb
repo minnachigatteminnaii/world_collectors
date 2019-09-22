@@ -1,11 +1,18 @@
-<table>
- <tr>
-                <td>Continent</td>
-                <td><%= link_to "America", category_path(America) %></td>
-                <td><%= link_to "Europe", category_path(Europe) %></td>
-                <td><%= link_to "Africa", category_path(Africa) %></td>
-                <td><%= link_to "Asia", category_path(Asia) %></td>
-                <td><%= link_to "Oceania", category_path(Oceania) %></td>
-
- </tr>
-<table>
+<div class="border-category">
+    <h3>Continent</h3>
+    <p class="category-font">
+        <%= link_to "America", category_path(America) %>
+    </p>
+    <p class="category-font">
+        <%= link_to "Europe", category_path(Europe) %>
+    </p>
+    <p class="category-font">
+        <%= link_to "Africa", category_path(Africa) %>
+    </p>
+    <p class="category-font">
+        <%= link_to "Asia", category_path(Asia) %>
+    </p>
+    <p class="category-font">
+        <%= link_to "Oceania", category_path(Oceania) %>
+    </p>
+</div>

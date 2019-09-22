@@ -3,7 +3,7 @@
     <hr>
     <% current_user.favorites.each do |fav| %>
         <div class="col-md-offset-2">
-            <div class="row  border-item">
+            <div class="row  favorite-border-item">
                 <div class="col-md-5">
                     <%= attachment_image_tag fav.item, :jacket_image, 
                         :fill, 170, 170,  fallback: "m_e_others_500.png", size:'170x170' %>
