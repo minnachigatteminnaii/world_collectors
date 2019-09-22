@@ -10,6 +10,7 @@
   </head>
 
   <body>
+  <div class="wrapper">
       <% if administrator_signed_in? %>
         <%= render 'layouts/admin_header' %>
       <% elsif user_signed_in? %>
@@ -29,5 +30,6 @@
       <% else %>
         <%= render 'layouts/not_login_footer' %>
       <% end %>
+  </div>
   </body>
 </html>

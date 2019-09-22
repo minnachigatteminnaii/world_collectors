@@ -10,7 +10,7 @@
           <li><%= link_to " MYpage ", user_path(current_user) %></li>
           <li><%= link_to " logout ", destroy_user_session_path, method: :delete %></li>
            <li><%= link_to " cart", carts_path, class: "glyphicon glyphicon-shopping-cart" %></li>
-           <li>
+           <li style="padding-top: 15px;">
             <%= search_form_for @search, url: root_path do |f| %>
               <%= f.text_field :item_name_cont, placeholder: '商品名を入力...' %>
               <%= f.submit ("検索する") %>

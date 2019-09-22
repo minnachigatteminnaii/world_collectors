@@ -1,0 +1,6 @@
+<%= form_for(current_user.favorites.find_by(item_id: item.id), url: favorite_path(item), 
+                                    html: {method: :delete}, remote: true) do %>
+    <%= button_tag type: 'submit', name: nil, class: 'btn btn-default' do %>
+        <%= content_tag :span, '', class:"glyphicon glyphicon-heart" %>
+    <% end %>
+<% end %>
