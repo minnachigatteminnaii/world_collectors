@@ -53,6 +53,26 @@
     color: darkblue;
 }
 
+.fix-table {
+    table-layout: fixed !important;
+}
+
+.admin-item-show-th {
+    width: 15% !important;
+}
+
+.admin-item-show-td {
+    width: 15% !important;
+}
+
+// .admin-item-show-th2 {
+//     width: 20px !important;
+// }
+
+// .admin-item-show-td2 {
+//     width: 20px !important;
+// }
+
 #cart_item_quantity {
     margin:10px 20px 40px 5px;
     height: 25px;
