@@ -40,12 +40,12 @@
                     <tr>
                         <td><%= receive_items.item.item_name %></td>
                         <td><%= receive_items.quantity %></td>
-                        <td><%= receive_items.price %></td>
+                        <td><%= receive_items.price.to_s(:delimited) %>円</td>
                     </tr>
                 </table>
             <% end %>
 
-            <h2>合計金額 <%= @receive.total_price %>円</h2>
+            <h2>合計金額： <%= @receive.total_price.to_s(:delimited) %>円</h2>
         </div>
     </div>
 

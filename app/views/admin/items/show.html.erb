@@ -4,7 +4,7 @@
         <h4><small>商品名</small> <%= @item.item_name %></h4>
         <h4><small>レーベル名</small> <%= @item.label_name %></h4>
         <h4><small>ジャンル名</small> <%= @item.genre.name %></h4>
-        <h4><small>商品価格</small> <%= (@item.price * 1.08).floor %></h4>
+        <h4><small>商品価格</small> <%= ((@item.price * 1.08).floor).to_s(:delimited) %></h4>
         <h4><small>在庫数</small> <%= @stock %></h4>
         <h4><small>販売状況</small> <%= @item.sales_management %></h4>
     </div>
@@ -16,9 +16,6 @@
     <div class="col-md-2">
         <div>
             <%= link_to '編集', edit_admin_item_path, class:"btn btn-primary" %>
-        </div>
-
-        <div>
             <%= link_to '削除', admin_stop_path(@item), method: :put, class:"btn btn-primary" %>
         </div>
     </div>

@@ -13,7 +13,7 @@
                     <p class="index-font"><%= fav.item.item_name %></p>
                     <p class="index-font"><%= fav.item.label_name %></p>
                     <p class="index-font"><%= fav.item.artist.name %></p>
-                    <p class="index-font"><%= (fav.item.price * 1.08).floor %></p>
+                    <p class="index-font">¥<%= ((fav.item.price * 1.08).floor).to_s(:delimited) %></p>
                     <p class="index-font"><%= link_to '商品の詳細', item_path(fav.item) %>
                 </div>
             </div>
