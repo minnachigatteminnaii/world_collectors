@@ -21,7 +21,7 @@
             <tr>
                 <td><%= item.artist.name%></td>
                 <td><%= item.item_name%></td>
-                <td><%= (item.price * 1.08).floor%></td>
+                <td><%= ((item.price * 1.08).floor).to_s(:delimited)%></td>
                 <td><%= stock %></td>
                 <td><%= link_to "在庫追加", admin_arrival_new_path(item.id) %></td>
                 <td><%= link_to "商品詳細", admin_item_path(item) %></td>

@@ -7,27 +7,22 @@
             </div>
 
         <div class="col-md-offset-2 col-md-8">
-            <table>
-                <tr>
-                    <th>商品名</th>
-                    <th>個数</th>
-                    <th>金額</th>
-                </tr>
+            <div class="cart-item-box">
                 <% @user_cart_items.each do |cart_item| %>
-                    <tr>
-                        <td><%= cart_item.item.item_name %></td>
-                        <td><%= cart_item.quantity %></td>
-                        <td>￥<%= (((cart_item.item.price * cart_item.quantity) * 1.08).floor).to_s(:delimited) %>円</td>
-                    </tr>
+
+                        <p><%= cart_item.item.item_name %></p>
+                        <p>数量：<%= cart_item.quantity %></p>
+                        <p>￥<%= (((cart_item.item.price * cart_item.quantity) * 1.08).floor).to_s(:delimited) %></p>
+
                 <% end %>
-            </table>
+            </div>
         </div>
 
         <div class="col-md-offset-2 col-md-8">
-            <div>
-                <p>送料：  ￥500円</p>
-                <p>代引き手数料：  ￥150円</p>
-                <p>合計金額：  ￥<%= (@total_price + 500 + 150).to_s(:delimited)%>円</p>
+            <div class="cart-price-box">
+                <p>送料：  ￥500</p>
+                <p>代引き手数料：  ￥150</p>
+                <p>合計金額：  ￥<%= (@total_price + 500 + 150).to_s(:delimited)%></p>
             </div>
 
             <%= submit_tag '購入確認画面へ', class:"btn btn-primary" %>

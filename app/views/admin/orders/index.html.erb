@@ -8,11 +8,11 @@
                             <tr>
                                 <td>受注ID: <%= recieve.id %></td>
                                 <td>受注日: <%= recieve.created_at %></td>
-                                <td>ユーザー名: 
+                                <td>ユーザー名:
                                     <%= recieve.user.first_name %>
                                     <%= recieve.user.last_name %>
                                 </td>
-                                <td>購入金額: <%= recieve.total_price %></td>
+                                <td>購入金額: <%= recieve.total_price.to_s(:delimited) %>円</td>
                             </tr>
                         </table>
                     </div>

@@ -2,33 +2,26 @@
     <div class="col-md-offset-2 col-md-8">
         <p><%= @shopping_address %></p>
 
-        <div>
+        <div class="">
             <h2>購入内容</h2>
-            <table>
-                <tr>
-                    <th>商品名</th>
-                    <th>個数</th>
-                    <th>金額</th>
-                </tr>
+             <div>
                 <% item_price = 0 %>
                 <% @user_cart_items.each do |cart_item| %>
-                    <% price = ((cart_item.item.price * cart_item.quantity) * 1.08).floor %>
-                    <tr>
-                        <td><%= cart_item.item.item_name %></td>
-                        <td><%= cart_item.quantity %></td>
-                        <td>¥<%= price.to_s(:delimited) %>円</td>
-                    </tr>
-                    <% item_price += price %>
+                        <p><% price = ((cart_item.item.price * cart_item.quantity) * 1.08).floor %><p>
+                        <p><%= cart_item.item.item_name %></p>
+                        <p>数量：<%= cart_item.quantity %></p>
+                        <p>¥<%= price.to_s(:delimited) %></p>
+                        <p><% item_price += price %></p>
                 <% end %>
-            </table>
+             </div>
         </div>
 
         <div>
-            <p>送料： ￥500円</p>
-            <p>代引き手数料： ￥150円</p>
+            <p>送料： ￥500</p>
+            <p>代引き手数料： ￥150</p>
             <% total_price = item_price + 500 + 150 %>
-            <p>合計金額： ￥<%= total_price.to_s(:delimited) %>円</p>
-            <p>支払い方法 <%= @payment_method %></p>
+            <p>ご請求額： ￥<%= total_price.to_s(:delimited) %></p>
+            <p>支払い方法： <%= @payment_method %></p>
         </div>
     </div>
 
@@ -45,7 +38,7 @@
             <%= f.hidden_field :delivery_postal, value: @shopping_postal_code %>
             <%= f.hidden_field :status , { value: 'receiving' } %>
 
-            <%= f.submit '購入する', class:"btn btn-primary" %>
+            <%= f.submit '購入を確定する', class:"btn btn-primary" %>
         <% end %>
     </div>
 </div>
