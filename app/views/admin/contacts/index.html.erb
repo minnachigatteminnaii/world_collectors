@@ -1,0 +1,22 @@
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>タイトル</th>
+            <th>日時</th>
+            <th></th>
+        </tr>
+        <% @contacts.each do |contact| %>
+            <tr>
+                <td><%= contact.user.id %></td>
+                <td><%= contact.user.first_name %><%= contact.user.last_name %></td>
+                <td><%= contact.title %></td>
+                <td><%= contact.created_at %></td>
+                <td><%= link_to '詳細', admin_contact_path(contact) %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= paginate @contacts %>
