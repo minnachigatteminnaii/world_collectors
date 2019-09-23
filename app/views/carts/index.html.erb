@@ -35,7 +35,7 @@
 
             <div class="col-md-4">
                 <div>
-                    <h3>¥<%= (((cart_item.item.price * cart_item.quantity) * 1.08).floor).to_s(:delimited) %>円</h3>
+                    <h3>¥<%= (((cart_item.item.price * cart_item.quantity) * 1.08).floor).to_s(:delimited) %></h3>
                 </div>
 
                 <div>
@@ -47,7 +47,10 @@
 
     <div class="row">
         <h2>合計金額</h2>
-        <h2>¥<%= @total_price.to_s(:delimited) %>円</h2>
-        <%= link_to '購入方法の選択', new_order_path, class:"btn btn-primary" %>
+        <h2>¥<%= @total_price.to_s(:delimited) %></h2>
+        <div>
+        <%= link_to '購入手続きに進む', new_order_path, class:"btn btn-primary" %>
+        <%= link_to 'お買い物を続ける', root_path, class:"btn btn-primary" %>
+        </div>
     </div>
 </div>
