@@ -9,3 +9,88 @@
 #contact_body {
     width: 60% !important;
 }
+
+.contact-user {
+    width: 70%;
+    margin: 20px auto 30px !important;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.contact-user-p {
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30%;
+    margin: 0 auto 15px;
+    padding: 5px;
+    background-color: rgba(250, 240, 230, 0.7);
+}
+
+.contact-user-info {
+    padding: 15px 0;
+}
+
+.contact-user-title {
+    margin: 0 auto 30px !important;
+    padding: 15px;
+    width: 60%;
+    font-size: 18px;
+    border-bottom: 1px double rgba(8, 8, 8, 0.2);
+}
+
+.contact-title-text {
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(250, 240, 230, 0.7);
+}
+
+.contact-user-body {
+    width: 70%;
+    margin: 0 auto 50px !important;
+    padding-bottom: 60px;
+    border-bottom: 1px solid black;
+}
+
+.contact-body-text {
+    font-size: 18px;
+    width: 30%;
+    margin: 0 auto 25px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(250, 240, 230, 0.7);
+}
+
+.contact-body-border {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 60%;
+    margin: 0 auto !important;
+    padding: 15px;
+}
+
+.contact-reply {
+    width: 65%;
+    margin: 0 auto 60px !important;
+}
+
+.reply-form {
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30%;
+    margin: 0 auto 15px;
+    padding: 5px;
+    background-color: rgba(250, 240, 230, 0.7);
+}
+
+#reply {
+    width: 100%;
+    height: 100px;
+}
