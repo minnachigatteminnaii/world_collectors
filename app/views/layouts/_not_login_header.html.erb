@@ -1,15 +1,15 @@
 <% unless request.path.include?("administrators") %>
 <body>
-     <header class="navbar navbar-inverse">
+     <header class="navbar navbar-inverse navbar-position">
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
     <h2><%= link_to " World Collectors ", root_path%></h2>
     </nav>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to " login",new_user_session_path %></li>
-          <li><%= link_to " sign up",new_user_registration_path  %></li>
-          <li style="padding-top: 15px;">
+      <ul class="nav navbar-nav navbar-right navbar-original">
+          <li class="header-li"><%= link_to " login",new_user_session_path %></li>
+          <li class="header-li"><%= link_to " sign up",new_user_registration_path  %></li>
+          <li class="header-li" style="padding-top: 15px; padding-left: 15px;">
           <%= search_form_for @search, url: root_path do |f| %>
             <%= f.text_field :item_name_cont, placeholder: '商品名を入力...' %>
             <%= f.submit ("検索する") %>
