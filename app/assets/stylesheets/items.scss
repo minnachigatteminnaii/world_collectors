@@ -8,6 +8,7 @@
     font-weight: bold;
     font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
     border-bottom: 1px solid  whitesmoke;
+    color: black;
 }
 
 .border-item {
@@ -89,9 +90,10 @@
 }
 
 .ranking-border {
-    background-color: rgba(218, 165, 32, 0.2);
-    border-top: 1px solid rgba(218, 165, 32, 0.8);
-    border-bottom: 1px solid rgba(218, 165, 32, 0.8);
+    // background-color: rgba(218, 165, 32, 0.2);
+    // border-top: 1px solid rgba(218, 165, 32, 0.8);
+    // border-bottom: 1px solid rgba(218, 165, 32, 0.8);
+    // border: 1px solid black;
     border-radius: 5px;
     padding: 10px 5px;
     margin-bottom: 50px;
@@ -117,6 +119,7 @@
 .rank-name {
     padding-top: 15px;
     font-weight: bold;
+    color: black;
 }
 
 .rank_1 {
@@ -126,9 +129,9 @@
     font-family: Verdana,Helvetica,Arial,sans-serif;
 }
 
-.rank_1::before {
-    content: "👑";
-}
+// .rank_1::before {
+//     content: "👑";
+// }
 
 .rank_2, .rank_3, .rank_4, .rank_5 {
     font-size: 14px;
@@ -154,13 +157,15 @@
 }
 
 .category-logo {
-    border: 1px solid tan;
-    border-radius: 20px;
+    // border: 1px solid tan;
+    // border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.8);
+    // border-radius: 20px;
     height: 60px;
     text-align: center;
     line-height: 50px;
-    background-image: url(compass-2946959__480.jpg);
-    background-position: center;
+    // background-image: url(compass-2946959__480.jpg);
+    // background-position: center;
 }
 
 .logo-text {
@@ -173,22 +178,24 @@
 }
 
 .category {
-    padding: 15px 50px 8px;
+    padding: 15px 0 8px;
     text-align: center;
     font-size: 18px;
-    border-bottom: 1px solid rgba(244, 208, 90, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     width: 80%;
     margin: 0 auto;
 }
 
 .category:first-child {
-    padding: 30px 50px 8px;
+    padding: 30px 0 8px;
 }
 
 .category-box {
-    border: 1px solid rgba(210, 180, 140, 0.9);
-    border-radius: 25px;
-    background-color: rgba(250, 240, 230, 0.5);
+    // border: 1px solid rgba(210, 180, 140, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    // border-radius: 25px;
+    width: 50%;
+    // background-color: rgba(250, 240, 230, 0.5);
 }
 
 .category-padding {
@@ -201,30 +208,30 @@
     padding: 20px;
 }
 
-.America {
-    background-image: url(panorama-2117310__480.jpg);
-}
+// .America {
+//     background-image: url(panorama-2117310__480.jpg);
+// }
 
-.Europe {
-    background-image: url(city-of-london-4481399_1280.jpg);
+// .Europe {
+//     background-image: url(city-of-london-4481399_1280.jpg);
    
-}
+// }
 
-.Africa {
-    background-image: url(antelope-4121962_1280.jpg);
+// .Africa {
+//     background-image: url(antelope-4121962_1280.jpg);
    
-}
+// }
 
-.Asia {
-    background-image: url(city-street-1246870_1280.jpg);
+// .Asia {
+//     background-image: url(city-street-1246870_1280.jpg);
    
-}
+// }
 
-.Oceania {
-    background-image: url(wellington-2144119_1280.jpg);
-    background-position: center;
+// .Oceania {
+//     background-image: url(wellington-2144119_1280.jpg);
+//     background-position: center;
    
-}
+// }
 
 .category-font {
     color: white;
