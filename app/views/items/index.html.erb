@@ -1,15 +1,15 @@
-<div class="row">
-    <div class="col-md-3">
+<div class="row" id="top">
+    <div class="col-md-3 category-padding">
         <%= render 'layouts/category_continent' %>
     </div>
 
-    <div class="col-md-9 itme-index-border">
+    <div class="col-md-offset-1 col-md-8 itme-index-border">
         <h3 class="rank-title">人気ランキング</h3>
         <div class="row ranking-border">
             <% @item_ranks.each.with_index(1) do |rank_item, i| %>
                 <div class="col-md-2 rank-item">
                     <p class="rank_<%= i %>"><%= i %> 位</p>
-                    <div>
+                    <div class="rank-description">
                         <%= attachment_image_tag rank_item, :jacket_image, :fill, 100, 100, fallback: "m_e_others_500.png", size:'100x100' %>
                         <p class="rank-name"><%= link_to rank_item.item_name, item_path(rank_item) %></p>
                     </div>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-8">
                     <p class="index-font"><%= item.item_name%></p>
-              　　　　<p><%= item.artist.name %></p>
+                　　 <p class="index-font"><%= item.artist.name %></p>
                     <p class="index-font"><%= item.label_name%></p>
                     <p class="index-font">¥<%= ((item.price * 1.08).floor).to_s(:delimited)%></p>
                 </div>
@@ -33,4 +33,8 @@
             <% end %>
         <% end %>
     </div>
+</div>
+
+<div class="anchor">
+    <span class="anchor-text"><a href="#top">ページトップへ</a><span>
 </div>

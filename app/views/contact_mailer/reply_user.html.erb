@@ -1,0 +1,23 @@
+<h1>World Collectorsをご利用いただきありがとうございます。</h1>
+<h3>このメールはお客様の下記のお問い合わせに関する返信となります。</h3>
+
+<div>
+  <%= @contact.user.first_name %> <%= @contact.user.last_name %>　様
+  <h4>お問い合わせタイトル</h4>
+  <%= @contact.title %>
+
+  <h4>お問い合わせ内容</h4>
+  <%= @contact.body %>
+</div>
+
+
+<h2>上記のお問い合わせに関する回答を下記に記します。</h2>
+<div>
+  <%= @reply %>
+</div>
+
+
+<h3>ご不明な点がございましたら、下記の番号にお電話ください。</h3>
+<p>000-0000-0000</p>
+
+<h2>World Collectors管理者より</h2>

@@ -1,0 +1,18 @@
+<div class="row">
+    <p><%= current_user.first_name %> <%= current_user.last_name %>　様</p>
+    <%= form_for(@contact) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class="form-group">
+            <%= f.label :title, 'タイトル' %>
+            <%= f.text_field :title, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :body, 'お問い合わせ内容' %>
+            <%= f.text_area :body, rows: 5, placeholder: '250文字以内で入力してください', class:"form-control" %>
+        </div>
+
+        <%= f.submit '送信', class:"btn btn-primary" %>
+    <% end %>
+</div>

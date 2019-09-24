@@ -21,24 +21,24 @@
     </div>
 </div>
 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h3>収録内容</h3>
-            <% @item.disks.each do |disk| %>
-                <h4><%= disk.name %></h4>
-                <table class="table">
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h3>収録内容</h3>
+        <% @item.disks.each do |disk| %>
+            <h4><%= disk.name %></h4>
+            <table class="table fix-table">
+                <tr>
+                    <th class="admin-item-show-th">順</th>
+                    <th>曲名</th>
+                </tr>
+                <% disk.musics.each do |music| %>
                     <tr>
-                        <th>順</th>
-                        <th>曲名</th>
+                        <td class="admin-item-show-td"><%= music.song_order %></td>
+                        <td><%= music.name %></td>
                     </tr>
-                    <% disk.musics.each do |music| %>
-                        <tr>
-                            <td><%= music.song_order %></td>
-                            <td><%= music.name %></td>
-                        </tr>
-                    <% end %>
-                </table>
-            <% end %>
-        </div>
+                <% end %>
+            </table>
+        <% end %>
     </div>
 </div>
+

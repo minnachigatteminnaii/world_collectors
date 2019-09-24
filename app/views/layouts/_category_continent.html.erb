@@ -1,10 +1,14 @@
-
-
-                <h3>Continent</h3>
-                <p><%= link_to "America", categoryr_path("America") %></p><br>
-                <p><%= link_to "Europe", categoryr_path("Europe") %></p><br>
-                <p><%= link_to "Africa", categoryr_path("Africa") %></p><br>
-                <p><%= link_to "Asia", categoryr_path("Asia") %></p><br>
-                <p><%= link_to "Oceania", categoryr_path("Oceania") %></p><br>
+<div class="category-box">
+    <div class="category-logo">
+        <span class="logo-text">Continent</span>
+    </div>
+    <div class="category-group">
+        <p class="category"><%= link_to "America", categoryr_path("America"), class:"category-link" %></p><br>
+        <p class="category"><%= link_to "Europe", categoryr_path("Europe"), class:"category-link" %></p><br>
+        <p class="category"><%= link_to "Africa", categoryr_path("Africa"), class:"category-link" %></p><br>
+        <p class="category"><%= link_to "Asia", categoryr_path("Asia"), class:"category-link" %></p><br>
+        <p class="category"><%= link_to "Oceania", categoryr_path("Oceania"), class:"category-link" %></p><br>
+    </div>
+</div>
 
 

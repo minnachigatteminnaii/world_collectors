@@ -1,0 +1,42 @@
+<div class="row contact-user">
+    <p class="contact-user-p">ユーザー情報</p>
+
+    <div class="col-md-3 col-md-offset-2">
+        <%= attachment_image_tag @contact.user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", size:'80x80' %>
+    </div>
+
+    <div class="col-md-6 contact-user-info">
+        <p><small>ユーザ名</small>　<%= @contact.user.first_name %> <%= @contact.user.last_name %></p>
+        <p><small>メールアドレス</small>　<%= @contact.user.email %></p>
+    </div>
+</div>
+
+<div class="row contact-user-title">
+    <div class="col-md-2 col-md-offset-3">
+        <p class="contact-title-text">タイトル</p>
+    </div>
+
+    <div class="col-md-4">
+        <p><%= @contact.title %></p>
+    </div>
+</div>
+
+<div class="row contact-user-body">
+    <p class="contact-body-text">お問い合わせ内容</p>
+
+    <div class="col-md-offset-3 contact-body-border">
+        <%= @contact.body %>
+    </div>
+</div>
+
+<div class="row contact-reply">
+    <p class="reply-form">返信フォーム</p>
+    <div class="col-md-8 col-md-offset-2">
+        <%= form_tag(reply_admin_contacts_path) do %>
+            <%= hidden_field_tag :contact, @contact.id %>
+            <%= text_area_tag :reply %>
+
+            <%= submit_tag '返信', class:"btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

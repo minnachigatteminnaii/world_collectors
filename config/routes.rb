@@ -112,7 +112,11 @@ Rails.application.routes.draw do
 
   #Admin::ContactsController
   namespace :admin do
-    resources :contacts, only: [:index, :show]
+    resources :contacts, only: [:index, :show] do
+      collection do
+        post 'reply'
+      end
+    end
   end
 
 
