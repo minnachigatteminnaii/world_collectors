@@ -193,8 +193,10 @@
 .category-box {
     // border: 1px solid rgba(210, 180, 140, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
     // border-radius: 25px;
-    width: 50%;
+    width: 65%;
+    margin: 0 auto;
     // background-color: rgba(250, 240, 230, 0.5);
 }
 
@@ -234,7 +236,7 @@
 // }
 
 .category-font {
-    color: white;
+    // color: white;
 }
 
 
@@ -242,11 +244,11 @@
 .anchor {
     margin-top: 70px;
     text-align: center;
-    width: 35%;
+    // width: 35%;
     height: 50px;
     margin: 70px auto 20px;
-    background-color: rgba(238, 232, 170, 0.5);
-    border-radius: 15px;
+    // background-color: rgba(0, 0, 0, 0.2);
+    // border-radius: 15px;
 }
 
 .anchor-text {

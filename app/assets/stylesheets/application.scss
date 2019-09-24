@@ -34,6 +34,19 @@ header {
     top: 0;
 }
 
+.navbar-position {
+    padding: 5px 0 10px;
+}
+
+.navbar-original {
+    margin-top: 15px !important;
+}
+
+.header-li {
+    font-size: 16px;
+    padding: 0 10px 0;
+}
+
 footer{
     // background-image: url("record-4043223__480.jpg");
     // background-size: cover;
@@ -48,8 +61,8 @@ footer{
 }
 
 .footer-msg {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 14px;
+    // font-weight: bold;
     color: white;
 }
 
