@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
     before_action :set_search
 
     def set_search
-        @search = Item.where(listing_stop: 0).page(params[:page]).ransack(params[:q])
-        @items = @search.result
+        @search = Item.where(listing_stop: 0).ransack(params[:q])
+        @items = @search.result.page(params[:page])
     end
 
     def after_sign_up_path(resource)
