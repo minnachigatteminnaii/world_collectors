@@ -12,7 +12,7 @@
             <div class="col-md-8">
                 <p class="index-font category-font"><%= item.item_name%></p>
                 <p class="index-font category-font"><%= item.label_name%></p>
-                <p class="index-font category-font"><%= (item.price * 1.08).floor%></p>
+                <p class="index-font category-font">¥<%= ((item.price * 1.08).floor).to_s(:delimited)%></p>
                 <p class="index-font category-font"><%= link_to "詳細を見る", item_path(item.id) %></p>
             </div>
         </div>

@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     belongs_to :artist
     belongs_to :genre
 
-    
+
 
     validates :item_name, presence: true, length: { maximum: 200, minimum: 1 }
     validates :artist_id, presence: true
