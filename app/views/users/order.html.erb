@@ -28,7 +28,7 @@
                         <tr>
                             <td><%= order_item.item.item_name %></td>
                             <td><%= order_item.quantity %></td>
-                            <td><%= order_item.price.to_s(:delimited)%></td>
+                            <td>¥<%= order_item.price.to_s(:delimited)%></td>
                         </tr>
                     <% end %>
                 </table>

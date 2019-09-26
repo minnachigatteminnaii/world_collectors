@@ -14,7 +14,7 @@ class CartsController < ApplicationController
     def create
         @cart_item = current_user.cart_items.build(cart_item_params)
         if @cart_item.save!
-            redirect_to root_url
+            redirect_to carts_url
         else
             redirect_to root_url
         end
