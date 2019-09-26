@@ -6,8 +6,13 @@
    </div>
   </div>
 </div>
-<div class="container">
-  <div class="row">
+
+ <div class="row">
+  <div class="col-xs-6">
+   <table>
+     <thead>
+  <div class="container">
+
     <div class="profile-name">
 	   <h3 class="prof-n-kan">名前</h3>
 	     <%= @user.first_name %> <%= @user.last_name %>
@@ -31,24 +36,31 @@
     <div class="postal-code">
     	<h3 class="prof-pc">郵便番号</h3>
     	<%= @user.postal_code %>
+            </thead>
+     </table>
     </div>
+
+    <div class="col-xs-6">
+     <table>
+      <thead>
     <div class ="another-address">
-    	<%= link_to "その他の発送先", shopping_addresses_path %>
+    	<%= link_to "その他の発送先", shopping_addresses_path ,:style=>"color:black;"%>
     </div>
     <div class="prof-order">
-    	<%= link_to "購入履歴", order_users_path %>
+    	<%= link_to "購入履歴", order_users_path ,:style=>"color:black;"%>
     </div>
     <div class="prof-fav">
-    	<%= link_to "いいね一覧", favorites_path %>
+    	<%= link_to "いいね一覧", favorites_path ,:style=>"color:black;"%>
     </div>
     <div class="prof-edit">
-    	<%= link_to "編集する", edit_user_path %>
+    	<%= link_to "編集する", edit_user_path ,:style=>"color:black;"%>
     </div>
     <div class="prof-remove">
-    	<%= link_to "退会する",  user_remove_path %>
+    	<%= link_to "退会する",  user_remove_path ,:style=>"color:black;"%>
     </div>
 
 
-
+      </thead>
+     </table>
    </div>
 </div>
