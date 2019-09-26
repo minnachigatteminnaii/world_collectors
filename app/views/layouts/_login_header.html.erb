@@ -2,14 +2,14 @@
      <header class="navbar navbar-inverse navbar-position">
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
-      <h2><%= link_to " World Collectors ", root_path%></h2>
-      <span class="text-right text-muted"><%= current_user.first_name %> <%= current_user.last_name %>さんようこそ</span>
+      <h2><%= link_to " World Collectors ", root_path,:style=>"color:white;"%></h2>
+      <span class="text-right text-muted" style="color:white"><%= current_user.first_name %> <%= current_user.last_name %>さんようこそ</span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right navbar-original">
-          <li class="header-li"><%= link_to " MYpage ", user_path(current_user) %></li>
-          <li class="header-li"><%= link_to " logout ", destroy_user_session_path, method: :delete %></li>
-           <li class="header-li"><%= link_to " cart", carts_path, class: "glyphicon glyphicon-shopping-cart" %></li>
+          <li class="header-li"><%= link_to " MYpage ", user_path(current_user) ,:style=>"color:white;"%></li>
+          <li class="header-li"><%= link_to " logout ", destroy_user_session_path, method: :delete ,:style=>"color:white;"%></li>
+           <li class="header-li"><%= link_to " cart", carts_path, class: "glyphicon glyphicon-shopping-cart" ,:style=>"color:white;"%></li>
            <li style="padding-top: 15px; padding-left: 15px;">
             <%= search_form_for @search, url: root_path do |f| %>
               <%= f.text_field :item_name_cont, placeholder: '商品名を入力...' %>
