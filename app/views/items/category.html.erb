@@ -1,9 +1,11 @@
 <div class="row background-category <%= @continent %>">
     <div class="col-md-3">
+
     <%= render 'layouts/category_continent' %>
     </div>
 
     <div class="col-md-9">
+    <h1><%= params[:category_id] %>'s recommend</h1>
     <% @category.each do |item| %>
         <div class="row border-item">
             <div class="col-md-4">
